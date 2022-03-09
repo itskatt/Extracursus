@@ -2,7 +2,7 @@
 
 ## Motivation
 
-The website that my university use to handle our grades is old and not practical to use
+The website that my university uses to handle our grades is old and not practical to use
 on mobile. To view our grades, we don't only have to zoom a lot to be able to interact
 with the site, but also download a PDF.
 
