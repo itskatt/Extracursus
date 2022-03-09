@@ -18,7 +18,7 @@ To get a running copy of *Extracursus*, please follow the following instructions
 1. Clone this repository
 
    ```sh
-   git clone ...
+   git clone https://github.com/itskatt/extracursus
    ```
 
 2. Install requirements
