@@ -15,19 +15,24 @@ of it. Have fun!
 
 To get a running copy of *Extracursus*, please follow the following instructions:
 
-1. Clone this repository
+1. ### Clone this repository
 
    ```sh
    git clone https://github.com/itskatt/extracursus
    ```
 
-2. Install requirements
-   
-   ```sh
-   pip install -r --user requirements.txt
-   ```
+2. ### Install requirements
+   - #### Python
+     This app has been tested succesfully on Python `3.8.8` and `3.10.2`,
+     but any version above `3.6.x` should work.
 
-3. Configure a secret key  
+   - #### Pip requirements
+   
+      ```sh
+      pip install -r --user requirements.txt
+      ```
+
+3. ### Configure a secret key  
    First generate it
 
    ```py
