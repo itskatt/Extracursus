@@ -1,0 +1,173 @@
+@charset "utf8";
+
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+
+:root {
+    --background: aliceblue;
+    --primary: #77b5e4;
+    --primary-dark: #62a1d1;
+    --accent: #FF7F11;
+    --acent-dark: #d86a09;
+
+    --shadow: 0px 0px 43px 10px rgba(30,30,60,0.25);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+
+    font-family: "Readex Pro", sans-serif;
+
+    background-color: var(--background);
+}
+
+.wrapper {
+    flex: 1 0 auto;
+}
+
+header {
+    text-align: center;
+
+    padding: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin-top: 0;
+    padding: 0.5em;
+
+    background-color: var(--primary-dark);
+
+    border-bottom: 2px solid darkblue;
+}
+
+main {
+    margin: 0 auto;
+}
+
+/* The loader container */
+#loader {
+    /* hidden by default (flex eslewise)*/
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    text-align: center;
+    padding: 1rem;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#loader span {
+    font-size: 2rem;
+}
+
+/* The loader itself */
+.lds-ellipsis {
+    display: inline-block;
+
+    position: relative;
+
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: var(--primary-dark);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+/* The site's footer */
+footer {
+    flex-shrink: 0;
+    padding: 0 1.5rem;
+
+    font-size: 0.8em;
+
+    background-color: bisque;
+}
+
+footer p {
+    width: fit-content;
+    max-width: 650px;
+
+    text-align: justify;
+    margin: 1em auto;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Extracursus">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url_for(request.endpoint) }}">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Extracursus">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block imports %}
+    {% endblock %}
+
+    <title>{% block title %}{% endblock%}</title>
+</head>
+
+<body>
+    <div id="loader">
+        <span>Chargement en cours...</span>
+        <em>Si le chargement prend trop de temps vous pouvez rafraichir la page</em>
+
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <header>
+            <h1>{{ self.title() }}</h1>
+        </header>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+    </div>
+    <footer>
+        <p>
+            Ce site ne sauvegarde <b>PAS</b> votre mot de passe. Si quand même
+            vous n'avez pas confiance (et je vous félicite car il ne faut
+            jamais faire confiance à ce genre de sites sur internet), vous pouvez consulter librement la source
+            d'Extracursus <a href="https://github.com/itskatt/extracursus" target="_blank"
+                rel="noopener noreferrer">ici</a>, et vous trouverez aussi
+            des instructions pour télécharger et faire tourner votre propre
+            instance d'Extracursus dans un usage autorisé par la license.
+        </p>
+        <p>
+            <em>Version 1 &mdash; itskatt</em>
+        </p>
+    </footer>
+</body>
+
+</html>

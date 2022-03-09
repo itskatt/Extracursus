@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block imports %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script defer src="{{ url_for('static', filename='js/login.js') }}"></script>
+{% endblock %}
+
+{% block title %}Extracursus{% endblock %}
+
+{% block main %}
+    <!-- Form for login info -->
+    <section class="login-form">
+        <h2>Connection</h2>
+
+        <form onsubmit="login()" id="login-form">
+            <fieldset>
+                <div class="login-row">
+                    <label for="username">Nom d'utilisateur :</label>
+                    <input type="text" required name="username" id="username" placeholder="ab123456">
+                </div>
+    
+                <div class="login-row">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" required name="password" id="password" placeholder="••••••••">
+                </div>
+                
+                <input type="submit" value="Connection à Intracursus">
+            </fieldset>
+        </form>
+    </section>
+
+    <!-- Semester section -->
+    <section class="semester-select invisible" id="semester-select">
+        <h2>Choix du semestre</h2>
+
+        <form onsubmit="getSemester()" id="semester-form">
+            <fieldset>
+                <!-- Semesters inputs will go here -->
+                <input type="submit" value="Voir les notes du semestre">
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

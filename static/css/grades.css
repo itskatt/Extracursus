@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+:root {
+    --emptyDisplay: block;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+main {
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 0 auto;
+}
+
+/* The checkbox to hide gradeless subjects */
+.hide-container {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.empty {
+    display: var(--emptyDisplay);
+}
+
+/* the list of grades ======= */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+li {
+    padding-bottom: 1.5em;
+
+    background-color: var(--primary);
+}
+
+li + li {
+    margin-top: 2rem;
+}
+
+li > *:not(h2) {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+/* The table with the grades ========== */
+table {
+    border-collapse: collapse;
+
+    border: 1px solid white;
+    /* box-shadow: var(--shadow) */
+}
+
+td {
+    padding: 1em;
+
+    text-align: left;
+}
+
+td:first-child {
+    font-weight: 800;
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.165);
+}

@@ -1,0 +1,4 @@
+Flask
+requests
+PyPDF4
+waitress

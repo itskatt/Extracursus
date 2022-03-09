@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block imports %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/grades.css') }}">
+    <script defer src="{{ url_for('static', filename='js/grades.js') }}"></script>
+{% endblock %}
+
+{% block title %}Notes du semestre {{ semester }}{% endblock %}
+
+{% block main %}
+    <div class="hide-container">
+        <label for="hide">Cacher les matières sans notes</label>
+        <input onclick="toggleEmpty()" type="checkbox" id="hide">
+    </div>
+    <ul>
+        {% for sub in subjects %}
+        <li class="{{ sub['empty'] }}">
+            <h2>{{ sub["name"] }}</h2>
+            <p>Prof : <em>{{ sub["teacher"] }}</em></p>
+            <table>
+                <tbody>
+                    {% for grade in sub["grades"] %}
+                    <tr>
+                        <td>{{ grade[0] }}</td>
+                        <td>{{ grade[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
