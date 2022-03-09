@@ -12,6 +12,7 @@ class IntraClient:
                           "(KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
         })
         self.semesters = []
+        self.current_sem_exists = False
 
     def close(self):
         self.sess.close()
@@ -63,7 +64,12 @@ class IntraClient:
 
         semesters = []
         # recuperation du semestre actuel
-        semesters.append(html_page.split("<b>Relevé des notes et absences de ")[1].split()[0])
+        # il se peut qu'il n'existe pas
+        try:
+            semesters.append(html_page.split("<b>Relevé des notes et absences de ")[1].split()[0])
+            self.current_sem_exists = True
+        except IndexError:
+            pass
 
         # recuperation des autres semestres
         try:
@@ -81,7 +87,7 @@ class IntraClient:
 
     def get_semester_pdf(self, semester):
         # semestre actuel
-        if semester == self.semesters[0]:
+        if semester == self.semesters[0] and self.current_sem_exists:
             payload = {
             "telrelevepresences": f"Télécharger le relevé des notes et absences de {semester}"
         }
