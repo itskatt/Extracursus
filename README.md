@@ -61,6 +61,6 @@ Congratulations, you have successfully installed the app, now you can either:
      waitress-serve --port=8080 app:app
      ```
 
-## License
+## Licence
 
 See [LICENCE](LICENCE)
