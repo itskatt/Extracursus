@@ -19,11 +19,17 @@ main {
 .top-container {
     display: flex;
 
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: center;
     align-items: baseline;
 
     flex-wrap: wrap;
+    gap: 1em;
+}
+
+/* main content wrapper */
+.wrapper {
+    padding: 0.7em;
 }
 
 .empty {
@@ -34,6 +40,7 @@ main {
 ul {
     list-style-type: none;
     padding-left: 0;
+    margin-top: 0;
     margin-bottom: 2rem;
 }
 

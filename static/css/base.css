@@ -194,3 +194,8 @@ footer p {
     text-align: justify;
     margin: 1em auto;
 }
+
+/* Copyrights line */
+p > em {
+    text-align: center;
+}
