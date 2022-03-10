@@ -8,9 +8,12 @@
 {% block title %}Notes du semestre {{ semester }}{% endblock %}
 
 {% block main %}
-    <div class="hide-container">
-        <label for="hide">Cacher les matières sans notes</label>
-        <input onclick="toggleEmpty()" type="checkbox" id="hide">
+    <div class="top-container">
+        <a href="/pdf_dl?sem={{ semester }}">Télécharger le PDF</a>
+        <div>
+            <label for="hide">Cacher les matières sans notes</label>
+            <input onclick="toggleEmpty()" type="checkbox" id="hide">
+        </div>
     </div>
     <ul>
         {% for sub in subjects %}

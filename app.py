@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+import io
 import os
 import time
 from datetime import timedelta
 from functools import lru_cache
 
-from flask import Flask, abort, redirect, render_template, request, session
+from flask import (Flask, Response, abort, redirect, render_template, request,
+                   send_file, session)
 
 from intra_client import IntraClient
 from pdf_reader import get_grades
@@ -16,24 +18,41 @@ app.permanent_session_lifetime = timedelta(minutes=10) # session will last 10 mi
 active_clients = {}
 
 # PDF caching ----------------------------------------------------
-@lru_cache()
-def get_and_parse_pdf_for_cached(username, semester, ttl_hash=None):
+@lru_cache(maxsize=64)
+def _dl_pdf_cached(username, semester, ttl_hash=None):
+    """
+    Dowloads a PDF or returns the one in cache
+    """
     client = active_clients[username]
     app.logger.info(f"Dowloading pdf for {username}...")
     pdf = client.get_semester_pdf(semester)
+    return pdf
+
+@lru_cache(maxsize=64)
+def _parse_pdf_cached(username, semester, ttl_hash=None):
+    """
+    Dowloads or gets the cached pdf and parses it
+    """
+    pdf = _dl_pdf_cached(username, semester, ttl_hash)
     return get_grades(pdf)
 
-def get_ttl_hash(seconds):
+def _get_ttl_hash(seconds):
     """
     Return the same value withing `seconds` time period
     """
     return round(time.time() / seconds)
 
-def get_and_parse_pdf_for(username, semester):
+def dl_and_parse_pdf(username, semester):
     """
     Will only get and parse a fresh new pdf once every hour
     """
-    return get_and_parse_pdf_for_cached(username, semester, get_ttl_hash(3600))
+    return _parse_pdf_cached(username, semester, _get_ttl_hash(3600))
+
+def dl_pdf(username, semester):
+    """
+    Downloads the pdf
+    """
+    return _dl_pdf_cached(username, semester, _get_ttl_hash(3600))
 
 
 # Index ------------------------------------------------------
@@ -82,7 +101,6 @@ def login():
 # Pretty grades -------------------------------------------------------------
 @app.route("/pretty_grades")
 def pretty_grades():
-
     user = session.get("username")
     if not user:
         return redirect("/")
@@ -90,11 +108,32 @@ def pretty_grades():
     client = active_clients.get(user)
     if client is None:
         return redirect("/")
+
     # if no semester is provided, we select the current one
     semester = request.args.get("sem", client.semesters[0])
 
-    subjects = get_and_parse_pdf_for(user, semester)
+    subjects = dl_and_parse_pdf(user, semester)
     return render_template("pretty_grades.html", semester=semester, subjects=subjects)
+
+# Download PDF
+@app.route("/pdf_dl")
+def download_pdf():
+    user = session.get("username")
+    if not user:
+        return redirect("/")
+
+    client = active_clients.get(user)
+    if client is None:
+        return redirect("/")
+
+    semester = request.args.get("sem", client.semesters[0])
+
+    pdf = dl_pdf(user, semester)
+    return send_file(
+        io.BytesIO(pdf),
+        attachment_filename=f"semestre_{semester}.pdf",
+        mimetype="application/pdf"
+    )
 
 # Whoami -----------------------------------------------------------------------
 @app.route("/whoami")
