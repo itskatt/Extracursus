@@ -18,26 +18,12 @@ main {
 /* Container at the top of the pages */
 .top-container {
     display: flex;
+
     justify-content: space-between;
     align-content: center;
     align-items: baseline;
-}
 
-.top-container a {
-    text-decoration: none;
-    padding: 0.7em;
-
-    color: white;
-    background-color: var(--accent);
-
-    border: 1px solid white;
-    border-radius: 99999px;
-
-    transition: transform 500ms ease;
-}
-
-.top-container a:hover {
-    transform: skewx(-25deg);
+    flex-wrap: wrap;
 }
 
 .empty {

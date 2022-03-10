@@ -68,25 +68,8 @@ input[type="text"], input[type="password"] {
     background-color: var(--input);
 }
 
-input[type="submit"] {
-    width: fit-content;
-    padding: 0.7em;
-
-    color: white;
-    background-color: var(--accent);
-
-    border: 1px solid white;
-    border-radius: 99999px;
-
-    transition: transform 500ms ease;
-}
-
 input[type="submit"]:disabled {
     background-color: var(--acent-dark);
-}
-
-input[type="submit"]:not(:disabled):hover {
-    transform: skewx(-25deg);
 }
 
 #semester-form fieldset {

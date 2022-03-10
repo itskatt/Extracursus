@@ -59,6 +59,26 @@ main {
     margin: 0 auto;
 }
 
+/* Pill button */
+.pill-btn {
+    text-decoration: none;
+    padding: 0.8em;
+
+    font-size: 0.85em;
+    font-family: inherit;
+    color: white;
+    background-color: var(--accent);
+
+    border: 1px solid white;
+    border-radius: 99999px;
+
+    transition: transform 500ms ease;
+}
+
+.pill-btn:not(:disabled):hover {
+    transform: skewx(-25deg);
+}
+
 /* The loader container */
 #loader {
     /* hidden by default (flex eslewise)*/
