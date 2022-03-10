@@ -87,7 +87,7 @@ main {
     justify-content: center;
     flex-direction: column;
 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
