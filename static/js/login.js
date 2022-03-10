@@ -21,7 +21,7 @@ async function login() {
     form.elements[0].disabled = true
 
     // We start the loader
-    loader.style.display = "flex";
+    loader.style.display = "flex"
     
     // we send it to the server
     // TODO: rewrite to use callbacks to catch net::ERR_CONNECTION_RESET
@@ -97,7 +97,7 @@ function createSemSelection(semesters) {
 
 function getSemester() {
     // start the loader
-    loader.style.display = "flex";
+    loader.style.display = "flex"
 
     // get the value from the selected radio button
     let buttons = document.getElementsByName(SEMESTER_SELECT)
