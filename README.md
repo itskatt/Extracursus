@@ -63,4 +63,4 @@ Congratulations, you have successfully installed the app, now you can either:
 
 ## License
 
-See [LICENSE](LICENSE)
+See [LICENCE](LICENCE)
