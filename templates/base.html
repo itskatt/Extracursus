@@ -8,9 +8,13 @@
 
     <meta property="og:title" content="Extracursus">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url_for(request.endpoint) }}">
+    <meta property="og:image" content="{{ url_for('static', filename='img/banner.png') }}">
+    <meta property="og:description" content="Marre de devoir télécharger un PDF pour voir vos notes ? Ce site est fait pour vous !">
+    <meta property="og:url" content="https://extracursus.herokuapp.com/">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Extracursus">
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     {% block imports %}
@@ -52,7 +56,7 @@
             instance d'Extracursus dans un usage autorisé par la license.
         </p>
         <p>
-            <em>Version 5 &mdash; &copy; itskatt</em>
+            <em>Version 6 &mdash; &copy; itskatt</em>
         </p>
     </footer>
 </body>
