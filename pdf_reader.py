@@ -32,11 +32,17 @@ def extract_subjects(text):
         # 1ere ligne: nom de la matiere
         name = subject[0].split(" : ")[-1]
 
-        # 2nde ligne: nom du prof
+        # 2nde ligne: nom du prof + moeynne de la matiere
+        # prof
         if "Responsable" in subject[1]:
             teacher = subject[1].split(" : ")[-1]
         else:
             teacher = "Pas de prof"
+        # moyenne
+        if "Moyenne" in subject[1]:
+            average = subject[1].split(" : ")[1].split(" ")[0]
+        else:
+            average = "Pas de moyenne disponible sur le PDF"
 
         # le reste moins une ligne nous permettra de determiner le nombre de notes
         # et de les extraires
@@ -59,6 +65,7 @@ def extract_subjects(text):
         out.append({
             "name": name,
             "teacher": teacher,
+            "average": average,
             "grades": grades,
             "empty": "empty" if grades == [("Séance N°1 - Séance N°1", "Résultats non publiés")] else ""
         })
@@ -73,8 +80,9 @@ def get_grades(pdf):
 if __name__ == "__main__":
     from pprint import pprint
 
-    with open("../semestre_TDFTS3.pdf", "rb") as f:
+    with open("../semestre.pdf", "rb") as f:
         pdf = f.read()
 
     grades = get_grades(pdf)
+    # grades = extract_text(pdf)
     pprint(grades)
