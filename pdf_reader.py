@@ -24,7 +24,7 @@ def extract_subjects(text):
     out = []
     # extraction des notes par matiere (uniquement les notes des matieres et SAés,
     # on ignore les UEs et penalités/bonifications)
-    subjects = [m.start() for m in re.finditer(r"Code UE .+\d :", text)]
+    subjects = [m.start() for m in re.finditer(r"Code (UE|Matière) .+\d :", text)]
     for i in range(len(subjects) - 1):
         subject = text[subjects[i]:subjects[i + 1]]
         subject = subject.splitlines()
