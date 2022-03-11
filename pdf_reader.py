@@ -67,3 +67,14 @@ def extract_subjects(text):
 
 def get_grades(pdf):
     return extract_subjects(extract_text(pdf))
+
+
+# For testing
+if __name__ == "__main__":
+    from pprint import pprint
+
+    with open("../semestre_TDFTS3.pdf", "rb") as f:
+        pdf = f.read()
+
+    grades = get_grades(pdf)
+    pprint(grades)
