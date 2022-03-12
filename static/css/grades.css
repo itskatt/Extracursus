@@ -30,7 +30,7 @@ main {
 /* toggle switch */
 .top-container > div {
     display: flex;
-    align-content: center;
+    align-items: center;
     gap: 0.5em;
 }
 
