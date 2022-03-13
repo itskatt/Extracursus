@@ -10,9 +10,6 @@ h1 {
 
 main {
     width: fit-content;
-    max-width: 100%;
-
-    margin: 0 auto;
 }
 
 /* Container at the top of the pages */
