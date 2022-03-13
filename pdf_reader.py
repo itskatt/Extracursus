@@ -5,7 +5,8 @@ from textwrap import TextWrapper
 from PyPDF4 import PdfFileReader
 
 SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+\d :")
-
+COMMENTS_REGEX = re.compile(r"Séance.+-")
+GRADE_REGEX = re.compile(r"((\d+\.\d+) \(.+ (\d+\.\d+)\))|(Résultats non publiés)") # note et coeff
 
 wrapper = TextWrapper(width=27)
 
@@ -46,23 +47,30 @@ def extract_subjects(text):
         else:
             average = "Pas de moyenne disponible sur le PDF"
 
-        # le reste moins une ligne nous permettra de determiner le nombre de notes
-        # et de les extraires
+        # le reste : les notes
+        # d'abbord on essaye de determiner le nombre de notes
         grades_text = subject[3:]
 
-        # il y a 3 lignes de texte (2 de description seance + nom et la note + coef)
-        nb_grades = int(len(grades_text) / 3)
+        # extraction des notes
+        grades = [GRADE_REGEX.match(line) for line in grades_text]
 
-        # les notes + coefs sont à la fin
-        grade_values = grades_text[-nb_grades:]
+        # filtrage des notes
+        # TODO : séparation note et coeff
+        grades = [m.group() for m in filter(lambda g: g is not None, grades)]
 
-        # mtn on fait correspondre les 2 lignes de description a la note qui correspond
-        grades = []
-        for i, note in enumerate(grade_values):
-            grades.append((
-                wrapper.fill(" ".join(grades_text[i * 2:i * 2 + 2])),
-                note
-            ))
+        # text des commentaires
+        comments_text = "\n".join(grades_text[:-len(grades)])
+
+        # extraction des commentaires
+        comments = []
+        comments_ind = [m.start() for m in COMMENTS_REGEX.finditer(comments_text)]
+        comments_ind.append(len(comments_text))
+        for i in range(len(comments_ind) - 1):
+            comment = comments_text[comments_ind[i]:comments_ind[i + 1]]
+            comments.append(comment.replace("\n", " "))
+
+        # correspondance du commentaire avec la note
+        grades = list(zip(comments, grades))
 
         out.append({
             "name": name,
