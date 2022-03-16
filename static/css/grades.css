@@ -31,6 +31,10 @@ main {
     gap: 0.5em;
 }
 
+.top-container > div * {
+    cursor: pointer;
+}
+
 .top-container input {
     appearance: none;
     position: relative;
