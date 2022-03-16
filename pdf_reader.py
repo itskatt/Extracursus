@@ -52,11 +52,18 @@ def extract_subjects(text):
         grades_text = subject[3:]
 
         # extraction des notes
-        grades = [GRADE_REGEX.match(line) for line in grades_text]
+        raw_grades = [GRADE_REGEX.match(line) for line in grades_text]
 
         # filtrage des notes
-        # TODO : séparation note et coeff
-        grades = [m.group() for m in filter(lambda g: g is not None, grades)]
+        grades = []
+        for match in filter(lambda g: g is not None, raw_grades):
+            if match.groups()[-1] is None: # note + coef
+                grades.append((
+                    float(match.group(2)), # note
+                    float(match.group(3)) # coef
+                ))
+            else: # "Résultats non publiés"
+                grades.append((match.group(),))
 
         # text des commentaires
         comments_text = "\n".join(grades_text[:-len(grades)])
