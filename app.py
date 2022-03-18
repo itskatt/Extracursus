@@ -64,11 +64,13 @@ def index():
 @app.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
+    if not data:
+        data = request.form
 
     try:
         username = data["username"]
         password = data["password"]
-    except KeyError:
+    except (KeyError, TypeError):
         abort(400)
 
     client = IntraClient()
@@ -83,7 +85,7 @@ def login():
 
     # login was a sucess
     app.logger.info("Getting semesters...")
-    semesters = client.get_semesters() # TODO: save object
+    semesters = client.get_semesters()
     app.logger.info("All done!")
 
     # close the client on fresh login
