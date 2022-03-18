@@ -5,8 +5,8 @@ import time
 from datetime import timedelta
 from functools import lru_cache
 
-from flask import (Flask, Response, abort, redirect, render_template, request,
-                   send_file, session)
+from flask import (Flask, abort, redirect, render_template, request, send_file,
+                   session)
 
 from intra_client import IntraClient
 from pdf_reader import get_grades
