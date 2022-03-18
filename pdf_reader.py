@@ -94,7 +94,7 @@ def extract_subjects(text):
             "teacher": teacher,
             "average": average,
             "grades": grades,
-            "empty": "empty" if grades == [("Séance N°1 - Séance N°1", "Résultats non publiés")] else ""
+            "empty": "empty" if grades == [("Séance N°1 - Séance N°1", ("Résultats non publiés",))] else ""
         })
 
     return out
@@ -107,7 +107,7 @@ def get_grades(pdf):
 if __name__ == "__main__":
     from pprint import pprint
 
-    with open("../semestre.pdf", "rb") as f:
+    with open("../semestre_TBFS2T.pdf", "rb") as f:
         pdf = f.read()
 
     grades = get_grades(pdf)
