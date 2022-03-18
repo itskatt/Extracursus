@@ -1,5 +1,4 @@
 import io
-import operator
 import re
 from textwrap import TextWrapper
 
