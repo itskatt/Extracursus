@@ -1,5 +1,6 @@
-import re
 import io
+import operator
+import re
 from textwrap import TextWrapper
 
 from PyPDF4 import PdfFileReader
@@ -45,7 +46,8 @@ def extract_subjects(text):
         if "Moyenne" in subject[1]:
             average = subject[1].split(" : ")[1].split(" ")[0]
         else:
-            average = "Pas de moyenne disponible sur le PDF"
+            # average = "Pas de moyenne disponible sur le PDF"
+            average = None
 
         # le reste : les notes
         # d'abbord on essaye de determiner le nombre de notes
@@ -64,6 +66,15 @@ def extract_subjects(text):
                 ))
             else: # "Résultats non publiés"
                 grades.append((match.group(),))
+
+        # calcul de la moyenne si elle n'apparait pas sur le PDF
+        if not average:
+            filtered = list(filter(lambda g: len(g) > 1, grades))
+            if filtered: # on calcule la moyenne uniquement si on a des notes
+                average = sum((g[0] * g[1] for g in filtered)) / sum((g[1] for g in filtered))
+                average = f"{round(average, 3)} (calculée)"
+            else:
+                average = "Pas de moyenne disponible"
 
         # text des commentaires
         comments_text = "\n".join(grades_text[:-len(grades)])
