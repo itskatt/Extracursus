@@ -10,6 +10,9 @@ GRADE_REGEX = re.compile(r"((\d+\.\d+) \(.+ (\d+\.\d+)\))|(Résultats non publi�
 
 wrapper = TextWrapper(width=27)
 
+def remove0s(float_):
+    return str(float_).rstrip("0").rstrip(".")
+
 def extract_text(pdf):
     with io.BytesIO(pdf) as f:
         reader = PdfFileReader(f)
@@ -43,7 +46,7 @@ def extract_subjects(text):
             teacher = "Pas de prof"
         # moyenne
         if "Moyenne" in subject[1]:
-            average = subject[1].split(" : ")[1].split(" ")[0]
+            average = remove0s(subject[1].split(" : ")[1].split(" ")[0])
         else:
             # average = "Pas de moyenne disponible sur le PDF"
             average = None
@@ -71,7 +74,7 @@ def extract_subjects(text):
             filtered = list(filter(lambda g: len(g) > 1, grades))
             if filtered: # on calcule la moyenne uniquement si on a des notes
                 average = sum((g[0] * g[1] for g in filtered)) / sum((g[1] for g in filtered))
-                average = f"{round(average, 3)} (calculée)"
+                average = f"{remove0s(round(average, 3))} (calculée)"
             else:
                 average = "Pas de moyenne disponible"
 
@@ -85,6 +88,12 @@ def extract_subjects(text):
         for i in range(len(comments_ind) - 1):
             comment = comments_text[comments_ind[i]:comments_ind[i + 1]]
             comments.append(comment.replace("\n", " "))
+
+        # on enelve les 0s inutiles a la fin des notes et coefs
+        grades = ((
+            remove0s(pair[0]),
+            remove0s(pair[1])
+        ) for pair in grades if len(pair) == 2)
 
         # correspondance du commentaire avec la note
         grades = list(zip(comments, grades))
@@ -107,7 +116,7 @@ def get_grades(pdf):
 if __name__ == "__main__":
     from pprint import pprint
 
-    with open("../semestre_TBFS2T.pdf", "rb") as f:
+    with open("../semestre.pdf", "rb") as f:
         pdf = f.read()
 
     grades = get_grades(pdf)
