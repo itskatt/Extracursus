@@ -133,6 +133,10 @@ td {
     text-align: left;
 }
 
+sub {
+    vertical-align: baseline;
+}
+
 td:first-child {
     font-weight: 800;
 }
