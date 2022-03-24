@@ -95,7 +95,7 @@ function createSemSelection(semesters) {
     fieldset.appendChild(ul)
 }
 
-function getSemester() {
+async function getSemester() {
     // start the loader
     loader.style.display = "flex"
 
@@ -108,7 +108,14 @@ function getSemester() {
         }
     }
 
-    // request the data from the backend
     console.log("Selected semester:", semester)
+
+    // load the pdf serverside
+    console.log("Preloading pdf...")
+    await fetch(`/load_pdf?sem=${semester}`)
+    console.log("done")
+
+    // when we are ready, redirect and disable loader
     window.location.href = `${window.location.origin}/pretty_grades?sem=${semester}`
+    loader.style.display = "none"
 }

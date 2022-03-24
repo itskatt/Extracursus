@@ -117,6 +117,24 @@ def pretty_grades():
     subjects = dl_and_parse_pdf(user, semester)
     return render_template("pretty_grades.html", semester=semester, subjects=subjects)
 
+# Load pdf
+@app.route("/load_pdf")
+def load_pdf():
+    user = session.get("username")
+    if not user:
+        return redirect("/")
+
+    client = active_clients.get(user)
+    if client is None:
+        return redirect("/")
+
+    semester = request.args.get("sem", client.semesters[0])
+
+    app.logger.info(f"Loading {semester} pdf for {user}...")
+    dl_pdf(user, semester)
+
+    return "OK"
+
 # Download PDF
 @app.route("/pdf_dl")
 def download_pdf():
