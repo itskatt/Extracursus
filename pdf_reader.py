@@ -93,7 +93,7 @@ def extract_subjects(text):
         grades = ((
             remove0s(pair[0]),
             remove0s(pair[1])
-        ) for pair in grades if len(pair) == 2)
+        )  if len(pair) == 2 else pair for pair in grades)
 
         # correspondance du commentaire avec la note
         grades = list(zip(comments, grades))
@@ -116,7 +116,7 @@ def get_grades(pdf):
 if __name__ == "__main__":
     from pprint import pprint
 
-    with open("../semestre.pdf", "rb") as f:
+    with open("../semestre_TBFS2t.pdf", "rb") as f:
         pdf = f.read()
 
     grades = get_grades(pdf)
