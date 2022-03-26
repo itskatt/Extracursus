@@ -11,6 +11,8 @@ from flask import (Flask, abort, redirect, render_template, request, send_file,
 from intra_client import IntraClient
 from pdf_reader import get_grades
 
+CACHE_DURATION = 900 # 15 minutes
+
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "development key DO NOT USE OUTSIDE OF DEV")
 app.permanent_session_lifetime = timedelta(minutes=10) # session will last 10 minutes
@@ -46,13 +48,13 @@ def dl_and_parse_pdf(username, semester):
     """
     Will only get and parse a fresh new pdf once every hour
     """
-    return _parse_pdf_cached(username, semester, _get_ttl_hash(3600))
+    return _parse_pdf_cached(username, semester, _get_ttl_hash(CACHE_DURATION))
 
 def dl_pdf(username, semester):
     """
     Downloads the pdf
     """
-    return _dl_pdf_cached(username, semester, _get_ttl_hash(3600))
+    return _dl_pdf_cached(username, semester, _get_ttl_hash(CACHE_DURATION))
 
 
 # Index ------------------------------------------------------
