@@ -1,6 +1,16 @@
 @charset "utf8";
 
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+/* alex-brush-regular - latin */
+@font-face {
+    font-family: "Alex Brush";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+         url("../fonts/alex-brush-v18-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */
+         url("../fonts/alex-brush-v18-latin-regular.woff") format("woff"), /* Modern Browsers */
+         url("../fonts/alex-brush-v18-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */
+         url("../fonts/alex-brush-v18-latin-regular.svg#AlexBrush") format("svg"); /* Legacy iOS */
+}
 
 /* to hide the 2nd form TODO */
 .invisible {
@@ -9,7 +19,7 @@
 
 /* titles */
 h1 {
-    font-family: 'Alex Brush', cursive;
+    font-family: "Alex Brush", cursive;
     font-size: 4em;
 }
 
