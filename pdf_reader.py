@@ -1,14 +1,12 @@
 import io
 import re
-from textwrap import TextWrapper
 
 from PyPDF4 import PdfFileReader
 
 SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+\d :")
 COMMENTS_REGEX = re.compile(r"Séance.+-")
-GRADE_REGEX = re.compile(r"((\d+\.\d+) \(.+ (\d+\.\d+)\))|(Résultats non publiés)") # note et coeff
+GRADE_REGEX = re.compile(r"((\d+\.\d+) \(.+ (\d+\.\d+)\))|(Résultats non publiés)") # note (et coeff)
 
-wrapper = TextWrapper(width=27)
 
 def remove0s(float_):
     return str(float_).rstrip("0").rstrip(".")
@@ -28,8 +26,7 @@ def extract_text(pdf):
 
 def extract_subjects(text):
     out = []
-    # extraction des notes par matiere (uniquement les notes des matieres et SAés,
-    # on ignore les UEs et penalités/bonifications)
+    # extraction des notes par matiere
     subjects = [m.start() for m in SUBJECTS_REGEX.finditer(text)]
     for i in range(len(subjects) - 1):
         subject = text[subjects[i]:subjects[i + 1]]
