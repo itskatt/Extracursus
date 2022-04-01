@@ -83,11 +83,13 @@ main {
     border: 1px solid white;
     border-radius: 99999px;
 
-    transition: transform 500ms ease;
+    transition-property: transform, box-shadow;
+    transition: 500ms ease;
 }
 
 .pill-btn:not(:disabled):hover {
-    transform: skewx(-25deg);
+    transform: translateY(-15%) scale(1.05);
+    box-shadow: 0px 7px 18px -5px var(--accent);
 }
 
 /* The loader container */
