@@ -7,10 +7,14 @@
     font-weight: 400;
     font-display: swap;
     src: local(""),
-         url("../fonts/readex-pro-v8-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */
-         url("../fonts/readex-pro-v8-latin-regular.woff") format("woff"), /* Modern Browsers */
-         url("../fonts/readex-pro-v8-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */
-         url("../fonts/readex-pro-v8-latin-regular.svg#ReadexPro") format("svg"); /* Legacy iOS */
+        url("../fonts/readex-pro-v8-latin-regular.woff2") format("woff2"),
+        /* Super Modern Browsers */
+        url("../fonts/readex-pro-v8-latin-regular.woff") format("woff"),
+        /* Modern Browsers */
+        url("../fonts/readex-pro-v8-latin-regular.ttf") format("truetype"),
+        /* Safari, Android, iOS */
+        url("../fonts/readex-pro-v8-latin-regular.svg#ReadexPro") format("svg");
+    /* Legacy iOS */
 }
 
 :root {
@@ -20,7 +24,7 @@
     --accent: #FF7F11;
     --acent-dark: #d86a09;
 
-    --shadow: 0px 0px 43px 10px rgba(30,30,60,0.25);
+    --shadow: 0px 0px 43px 10px rgba(30, 30, 60, 0.25);
 }
 
 * {
@@ -167,6 +171,7 @@ main {
     0% {
         transform: scale(0);
     }
+
     100% {
         transform: scale(1);
     }
@@ -176,6 +181,7 @@ main {
     0% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(0);
     }
@@ -185,6 +191,7 @@ main {
     0% {
         transform: translate(0, 0);
     }
+
     100% {
         transform: translate(24px, 0);
     }
