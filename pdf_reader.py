@@ -108,7 +108,7 @@ def extract_subjects(text):
             "teacher": teacher,
             "average": average,
             "grades": grades,
-            "empty": "empty" if grades == [("Séance N°1 - Séance N°1", ("Résultats non publiés",))] else ""
+            "empty": "empty" if all((g[1][0] == "Résultats non publiés" for g in grades if g)) else ""
         })
 
     return out
