@@ -20,7 +20,7 @@
     {% block imports %}
     {% endblock %}
 
-    <title>{% block title %}{% endblock%}</title>
+    <title>{{ self.title()|striptags }}</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 
     <div class="wrapper">
         <header>
-            <h1>{{ self.title() }}</h1>
+            <h1>{% block title %}{% endblock%}</h1>
         </header>
         <main>
             {% block main %}
