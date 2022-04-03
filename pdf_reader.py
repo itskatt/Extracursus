@@ -3,7 +3,7 @@ import re
 
 from PyPDF4 import PdfFileReader
 
-SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+[R].+\d :")
+SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+[RE].+\d :")
 NON_SUBJECT_REGEX = re.compile(r"Code (UE|Matière) .+\D :")
 COMMENTS_REGEX = re.compile(r"Séance.+-")
 GRADE_REGEX = re.compile(r"((\d+\.\d+) \(.+ (\d+\.\d+)\))|(Résultats non publiés)") # note (et coeff)
