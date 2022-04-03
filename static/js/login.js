@@ -10,6 +10,11 @@ document.querySelectorAll("form").forEach((frm) => {
     })
 })
 
+// sus
+document.getElementById("sus").addEventListener("click", () => {
+    console.log("sus")
+})
+
 async function login() {
     // we get the data
     const form = document.getElementById("login-form")

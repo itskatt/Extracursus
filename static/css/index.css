@@ -108,3 +108,12 @@ ul > li {
     display: flex;
     gap: 0.3em;
 }
+
+/* sus */
+#sus {
+    transition: color 10s ease;
+}
+
+#sus:hover {
+    color: red;
+}
