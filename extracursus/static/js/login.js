@@ -11,8 +11,19 @@ document.querySelectorAll("form").forEach((frm) => {
 })
 
 // sus
-document.getElementById("sus").addEventListener("click", () => {
+const sus = document.getElementById("sus")
+sus.addEventListener("transitionend", () => {
+    // test if the transition did not end
+    if (!sus.matches(":hover")) {
+        return
+    };
+
     console.log("sus")
+    sus.classList.add("falling")
+})
+
+sus.addEventListener("animationend", () => {
+    sus.classList.remove("falling")
 })
 
 async function login() {

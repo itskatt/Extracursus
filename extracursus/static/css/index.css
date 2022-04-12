@@ -25,6 +25,9 @@
 h1 {
     font-family: "Alex Brush", cursive;
     font-size: 4em;
+
+    background-color: var(--background);
+    display: inline-block;
 }
 
 main {
@@ -111,9 +114,34 @@ ul > li {
 
 /* sus */
 #sus {
+    position: relative;
     transition: color 10s ease;
 }
 
 #sus:hover {
     color: red;
+}
+
+@keyframes sus-fall {
+    30% {
+        transform: translateX(50px) rotate(90deg);
+    }
+    35% {
+        transform: translateX(60px) rotate(90deg);
+    }
+    100% {
+        transform: translateY(max(85vh, 500px)) translateX(150px) rotate(180deg);
+    }
+}
+
+#sus::after {
+    content: url("/static/img/sus.png");
+    position: absolute;
+    left: 0;
+
+    z-index: -1;
+}
+
+#sus.falling::after {
+    animation: 2.5s ease-in normal sus-fall;
 }
