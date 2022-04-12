@@ -8,8 +8,8 @@ from functools import lru_cache
 from flask import (Flask, abort, redirect, render_template, request, send_file,
                    session)
 
-from intra_client import IntraClient
-from pdf_reader import get_grades
+from .intra_client import IntraClient
+from .pdf_reader import get_grades
 
 CACHE_DURATION = 900 # 15 minutes
 
@@ -119,7 +119,7 @@ def pretty_grades():
     subjects = dl_and_parse_pdf(user, semester)
     return render_template("pretty_grades.html", semester=semester, subjects=subjects)
 
-# Load pdf
+# Load pdf -------------------------------------------------------------------------
 @app.route("/load_pdf")
 def load_pdf():
     user = session.get("username")
@@ -137,7 +137,7 @@ def load_pdf():
 
     return "OK"
 
-# Download PDF
+# Download PDF ------------------------------------------------------------------
 @app.route("/pdf_dl")
 def download_pdf():
     user = session.get("username")
@@ -175,7 +175,3 @@ def logout():
         session.pop("username", None)
         return f"Logged out {user}"
     return "No one to logout"
-
-# Testing/Debuging -------------------------------------------------------------------
-if __name__ == "__main__":
-    app.run(debug=True)

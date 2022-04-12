@@ -1,4 +1,4 @@
-Flask >= 2.0
+Flask >= 2.1
 requests >= 2.27
 PyPDF4 >= 1.27
 waitress >= 2.1

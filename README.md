@@ -52,6 +52,7 @@ Congratulations, you have successfully installed the app, now you can either:
      
      ```sh
      export FLASK_ENV=development
+     export FLASK_APP=extracursus
      flask run
      ```
 
