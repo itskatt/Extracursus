@@ -59,7 +59,7 @@ Congratulations, you have successfully installed the app, now you can either:
    - Run the app in production mode (when deployed on a server)
      
      ```sh
-     waitress-serve --port=8080 app:app
+     waitress-serve --port=8080 extracursus:app
      ```
 
 ## Licence
