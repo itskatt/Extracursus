@@ -115,7 +115,7 @@ ul > li {
 /* sus */
 #sus {
     position: relative;
-    transition: color 10s ease;
+    transition: color 7s ease;
 }
 
 #sus:hover {
@@ -144,4 +144,17 @@ ul > li {
 
 #sus.falling::after {
     animation: 2.5s ease-in normal sus-fall;
+}
+
+#cur.extra-sus {
+    font-size: 0;
+    transition: font-size 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#extra.extra-sus::after {
+    content: "-";
+}
+
+#sus2 {
+    cursor: pointer;
 }

@@ -26,6 +26,11 @@ sus.addEventListener("animationend", () => {
     sus.classList.remove("falling")
 })
 
+document.getElementById("sus2").addEventListener("click", () => {
+    document.getElementById("extra").classList.add("extra-sus")
+    document.getElementById("cur").classList.add("extra-sus")
+})
+
 async function login() {
     // we get the data
     const form = document.getElementById("login-form")
