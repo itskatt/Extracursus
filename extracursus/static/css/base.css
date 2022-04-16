@@ -46,6 +46,26 @@ body {
     background-color: var(--background);
 }
 
+.noscript {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--background);
+
+    z-index: 56468468;
+}
+
+.noscript h1 {
+    font-family: inherit;
+    font-size: xx-large;
+}
+
 .wrapper {
     flex: 1 0 auto;
 }
