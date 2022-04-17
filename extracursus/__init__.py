@@ -5,8 +5,8 @@ import time
 from datetime import timedelta
 from functools import lru_cache
 
-from flask import (Flask, abort, redirect, render_template, request, send_file,
-                   session)
+from flask import (Flask, abort, make_response, redirect, render_template,
+                   request, send_file, send_from_directory, session)
 
 from .intra_client import IntraClient
 from .pdf_reader import get_grades
@@ -175,3 +175,10 @@ def logout():
         session.pop("username", None)
         return f"Logged out {user}"
     return "No one to logout"
+
+# Service worker for PWA --------------------------------------------------------
+@app.route("/sw.js")
+def service_worker():
+    response = make_response(send_from_directory("static", "js/sw.js"))
+    response.headers["Cache-Control"] = "no-cache"
+    return response
