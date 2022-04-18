@@ -7,6 +7,7 @@ from functools import lru_cache
 
 from flask import (Flask, abort, make_response, redirect, render_template,
                    request, send_file, send_from_directory, session)
+from flask_talisman import Talisman
 
 from .intra_client import IntraClient
 from .pdf_reader import get_grades
@@ -16,6 +17,8 @@ CACHE_DURATION = 900 # 15 minutes
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "development key DO NOT USE OUTSIDE OF DEV")
 app.permanent_session_lifetime = timedelta(minutes=10) # session will last 10 minutes
+
+Talisman(app, content_security_policy=None)
 
 active_clients = {}
 

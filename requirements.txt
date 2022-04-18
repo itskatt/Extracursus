@@ -1,4 +1,5 @@
 Flask >= 2.1
+flask-talisman >= 1.0
 requests >= 2.27
 PyPDF4 >= 1.27
 waitress >= 2.1
