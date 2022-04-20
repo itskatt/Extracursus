@@ -4,6 +4,7 @@
 @font-face {
     font-family: "Alex Brush";
     font-style: normal;
+    font-display: swap;
     font-weight: 400;
     src: local(""),
         url("../fonts/alex-brush-v18-latin-regular.woff2") format("woff2"),
