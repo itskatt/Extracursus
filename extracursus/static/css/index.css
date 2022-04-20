@@ -23,7 +23,7 @@
 
 /* titles */
 h1 {
-    font-family: "Alex Brush", cursive;
+    font-family: "Alex Brush", "Brush Script MT", cursive;
     font-size: 4em;
 
     background-color: var(--background);
