@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 
 {% block imports %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-    <script defer src="{{ url_for('static', filename='js/login.js') }}"></script>
+    {% assets filter="cssmin", output="gen/index-bundle.css", "css/base.css", "css/index.css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+
+    {% assets filter="rjsmin", output="gen/login.min.js", "js/login.js" %}
+        <script defer src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 {% endblock %}
 
 {% block title %}<span id="extra">Extra</span><span id="cur">cur</span><span id="sus">sus</span>{% endblock %}

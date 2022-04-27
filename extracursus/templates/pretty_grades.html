@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 
 {% block imports %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/grades.css') }}">
-    <script defer src="{{ url_for('static', filename='js/grades.js') }}"></script>
+    {% assets filter="cssmin", output="gen/grades-bundle.css", "css/base.css", "css/grades.css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
+
+    {% assets filter="rjsmin", output="gen/grades.min.js", "js/grades.js" %}
+        <script defer src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 {% endblock %}
 
 {% block title %}Notes du semestre {{ semester }}{% endblock %}
