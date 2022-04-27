@@ -18,7 +18,12 @@ workbox.routing.registerRoute(
         request.destination == "script",
 
     new workbox.strategies.NetworkFirst({
-        cacheName: "script-style"
+        cacheName: "script-style",
+        plugins: [
+            new workbox.expiration.ExpirationPlugin({
+              maxEntries: 10,
+            })
+          ]
     })
 )
 
