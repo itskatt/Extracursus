@@ -32,6 +32,8 @@ To get a running copy of *Extracursus*, please follow the following instructions
       pip install -r --user requirements.txt
       ```
 
+      *Note: if you wish not to pollute your environement, you can use a [virtual environement](https://docs.python.org/3/library/venv.html)*
+
 3. ### Configure a secret key  
    First generate it
 
