@@ -104,6 +104,8 @@ main {
     color: white;
     background-color: var(--accent);
 
+    cursor: pointer;
+
     border: 1px solid white;
     border-radius: 99999px;
 
