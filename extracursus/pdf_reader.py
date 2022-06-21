@@ -6,7 +6,7 @@ from PyPDF4 import PdfFileReader
 SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+[RE].+\d :")
 NON_SUBJECT_REGEX = re.compile(r"Code (UE|Matière) .+\D :")
 COMMENTS_REGEX = re.compile(r"Séance.+-")
-GRADE_REGEX = re.compile(r"((\d+\.\d+) \(.+ (\d+\.\d+)\))|(Résultats non publiés)") # note (et coeff)
+GRADE_REGEX = re.compile(r"((\d+\.\d+ )?\(coeff (\d+\.\d+)\))|(Résultats non publiés)") # note (et coeff)
 
 
 def remove0s(float_):
@@ -66,7 +66,7 @@ def extract_subjects(text):
         # filtrage des notes
         grades = []
         for match in filter(lambda g: g is not None, raw_grades):
-            if match.groups()[-1] is None: # note + coef
+            if match.groups()[-1] is None and match.group(2): # note (qui existe) + coef
                 grades.append((
                     float(match.group(2)), # note
                     float(match.group(3)) # coef
@@ -121,7 +121,7 @@ def get_grades(pdf):
 if __name__ == "__main__":
     from pprint import pprint
 
-    with open("../semestre_TBFS2t.pdf", "rb") as f:
+    with open("../semestre_TBFS2T_pas_toutes_les_notes.pdf", "rb") as f:
         pdf = f.read()
 
     grades = get_grades(pdf)
