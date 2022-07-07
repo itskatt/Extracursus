@@ -11,7 +11,7 @@ from flask_assets import Environment
 from flask_talisman import Talisman
 
 from .intra_client import IntraClient
-from .pdf_reader import get_grades
+from .pdf_reader import get_pdf_data
 
 CACHE_DURATION = 900 # 15 minutes
 
@@ -41,7 +41,7 @@ def _parse_pdf_cached(username, semester, ttl_hash=None):
     Dowloads or gets the cached pdf and parses it
     """
     pdf = _dl_pdf_cached(username, semester, ttl_hash)
-    return get_grades(pdf)
+    return get_pdf_data(pdf)
 
 def _get_ttl_hash(seconds):
     """
@@ -121,8 +121,8 @@ def pretty_grades():
     # if no semester is provided, we select the current one
     semester = request.args.get("sem", client.semesters[0])
 
-    subjects = dl_and_parse_pdf(user, semester)
-    return render_template("pretty_grades.html", semester=semester, subjects=subjects)
+    pdf_data = dl_and_parse_pdf(user, semester)
+    return render_template("pretty_grades.html", semester=semester, pdf_data=pdf_data)
 
 # Load pdf -------------------------------------------------------------------------
 @app.route("/load_pdf")

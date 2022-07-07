@@ -133,6 +133,12 @@ def extract_subjects(text):
 def get_grades(pdf):
     return extract_subjects(extract_text(pdf))
 
+def get_pdf_data(pdf):
+    # TODO include average, position, admission results
+    return {
+        "grades": get_grades(pdf)
+    }
+
 
 # For testing
 if __name__ == "__main__":

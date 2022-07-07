@@ -22,8 +22,9 @@
         </div>
     </div>
     <hr>
+    {# TODO : display average, position,... #}
     <ul>
-        {% for sub in subjects %}
+        {% for sub in pdf_data["grades"] %}
         <li class="{{ sub['empty'] }}">
             <h2>{{ sub["name"] }}</h2>
             <p>Prof : <em>{{ sub["teacher"] }}</em></p>
