@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block imports %}
-    {% assets filter="cssmin", output="gen/index-bundle.css", "css/base.css", "css/index.css" %}
+    {% assets filters="cssmin", output="gen/index-bundle.css", "css/base.css", "css/index.css" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
     {% endassets %}
 
-    {% assets filter="rjsmin", output="gen/login.min.js", "js/login.js" %}
+    {% assets filters="rjsmin", output="gen/login.min.js", "js/login.js" %}
         <script defer src="{{ ASSET_URL }}"></script>
     {% endassets %}
 {% endblock %}
