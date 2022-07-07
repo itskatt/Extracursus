@@ -83,16 +83,33 @@ def extract_subjects(text):
             else:
                 average = "Pas de moyenne disponible"
 
-        # text des commentaires
-        comments_text = "\n".join(grades_text[:-len(grades)])
-
         # extraction des commentaires
         comments = []
-        comments_ind = [m.start() for m in COMMENTS_REGEX.finditer(comments_text)]
-        comments_ind.append(len(comments_text))
-        for i in range(len(comments_ind) - 1):
-            comment = comments_text[comments_ind[i]:comments_ind[i + 1]]
-            comments.append(comment.replace("\n", " "))
+        comment = []
+        for line in grades_text:
+            # on verifie si notre ligne est le début d'un commentaire de note
+            if COMMENTS_REGEX.match(line):
+                # si on était en train de remplir un commentaire, on l'ajoute a la liste
+                if comment:
+                    comments.append(" ".join(comment))
+                    comment.clear()
+
+                # ensuite on commence a remplir le suivant
+                comment.append(line)
+            
+            # si on atteind une note, on s'arrete
+            elif GRADE_REGEX.match(line):
+                if comment:
+                    comments.append(" ".join(comment))
+                    comment.clear()
+
+            # sinon, on ajoute !
+            else:
+                comment.append(line)
+
+        # a la fin, si il reste des trucs, on les ajoute aussi
+        if comment:
+            comments.append(" ".join(comment))
 
         # on enelve les 0s inutiles a la fin des notes et coefs
         grades = ((
@@ -121,9 +138,10 @@ def get_grades(pdf):
 if __name__ == "__main__":
     from pprint import pprint
 
-    with open("../semestre_TBFS2T_pas_toutes_les_notes.pdf", "rb") as f:
+    with open("../semestre_TBFS2T.pdf", "rb") as f:
         pdf = f.read()
 
     grades = get_grades(pdf)
     # grades = extract_text(pdf)
+    # print(grades)
     pprint(grades, sort_dicts=False)
