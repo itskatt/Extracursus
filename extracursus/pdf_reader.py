@@ -56,12 +56,38 @@ def extract_subjects(text):
             # average = "Pas de moyenne disponible sur le PDF"
             average = None
 
-        # le reste : les notes
-        # d'abbord on essaye de determiner le nombre de notes
+        # le reste des lignes de la matière sont les notes + commentaires
         grades_text = subject[3:]
 
-        # extraction des notes
-        raw_grades = [GRADE_REGEX.match(line) for line in grades_text]
+        # extraction des commentaires et des notes
+        raw_grades = []
+        comments = []
+        comment = []
+        for line in grades_text:
+            # on verifie si notre ligne est le début d'un commentaire de note
+            if COMMENTS_REGEX.match(line):
+                # si on était en train de remplir un commentaire, on l'ajoute a la liste
+                if comment:
+                    comments.append(" ".join(comment))
+                    comment.clear()
+
+                # ensuite on commence a remplir le suivant
+                comment.append(line)
+            
+            # si on atteind une note, on s'arrete ET on ajoute la note a la liste
+            elif grade_match := GRADE_REGEX.match(line):  # walrus operator!
+                raw_grades.append(grade_match)
+                if comment:
+                    comments.append(" ".join(comment))
+                    comment.clear()
+
+            # sinon, on ajoute !
+            else:
+                comment.append(line)
+
+        # a la fin, si il reste des trucs, on les ajoute aussi
+        if comment:
+            comments.append(" ".join(comment))
 
         # filtrage des notes
         grades = []
@@ -82,34 +108,6 @@ def extract_subjects(text):
                 average = f"{remove0s(round(average, 3))} (calculée)"
             else:
                 average = "Pas de moyenne disponible"
-
-        # extraction des commentaires
-        comments = []
-        comment = []
-        for line in grades_text:
-            # on verifie si notre ligne est le début d'un commentaire de note
-            if COMMENTS_REGEX.match(line):
-                # si on était en train de remplir un commentaire, on l'ajoute a la liste
-                if comment:
-                    comments.append(" ".join(comment))
-                    comment.clear()
-
-                # ensuite on commence a remplir le suivant
-                comment.append(line)
-            
-            # si on atteind une note, on s'arrete
-            elif GRADE_REGEX.match(line):
-                if comment:
-                    comments.append(" ".join(comment))
-                    comment.clear()
-
-            # sinon, on ajoute !
-            else:
-                comment.append(line)
-
-        # a la fin, si il reste des trucs, on les ajoute aussi
-        if comment:
-            comments.append(" ".join(comment))
 
         # on enelve les 0s inutiles a la fin des notes et coefs
         grades = ((
