@@ -23,8 +23,8 @@ To get a running copy of *Extracursus*, please follow the following instructions
 
 2. ### Install requirements
    - #### Python
-     This app has been tested succesfully on Python `3.8.8` and `3.10.2`,
-     but any version above `3.6.x` should work.
+     This app has been tested succesfully on Python `3.8.8` and `3.10.2+`,
+     but any version above `3.8.x` should work.
 
    - #### Pip requirements
    
