@@ -158,7 +158,7 @@ def download_pdf():
     pdf = dl_pdf(user, semester)
     return send_file(
         io.BytesIO(pdf),
-        attachment_filename=f"semestre_{semester}.pdf",
+        download_name=f"semestre_{semester}.pdf",
         as_attachment=True, # force download
         mimetype="application/pdf"
     )
