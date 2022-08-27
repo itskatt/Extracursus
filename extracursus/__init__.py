@@ -16,7 +16,12 @@ from .pdf_reader import get_pdf_data
 CACHE_DURATION = 900 # 15 minutes
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("FLASK_SECRET_KEY", "development key DO NOT USE OUTSIDE OF DEV")
+
+key = os.environ.get("FLASK_SECRET_KEY")
+if not key:
+    app.logger.warn("Using developement key")
+    key = "development key DO NOT USE OUTSIDE OF DEV"
+app.secret_key = key
 app.permanent_session_lifetime = timedelta(minutes=10) # session will last 10 minutes
 
 Environment(app)
