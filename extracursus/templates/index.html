@@ -13,6 +13,25 @@
 {% block title %}<span id="extra">Extra</span><span id="cur">cur</span><span id="sus">sus</span>{% endblock %}
 
 {% block main %}
+    {# Until heroku expires #}
+    <script>
+        if (window.location.host == "extracursus.herokuapp.com") {
+            let warning = document.createElement("p")
+            warning.innerHTML = "<b>Extracursus change d'hôte !</b> Pour pouvoir continuer à utiliser " +
+                                "Extracursus après le 28 novembre 2022, rendez-vous sur " + 
+                                "<a href=\"https://extracursus.live/\">https://extracursus.live/</a>."
+            warning.style.fontSize = "15px"
+            warning.style.backgroundColor = "var(--primary)"
+            warning.style.padding = "1em"
+
+            let main = document.querySelector("main")
+            main.insertBefore(
+                warning,
+                main.firstChild
+            )
+        }
+    </script>
+
     {# Form for login info #}
     <section class="login-form">
         <h2>Connexion</h2>
