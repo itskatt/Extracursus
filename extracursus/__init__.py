@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 key = os.environ.get("FLASK_SECRET_KEY")
 if not key:
-    app.logger.warn("Using developement key")
+    app.logger.warning("Using developement key")
     key = "development key DO NOT USE OUTSIDE OF DEV"
 app.secret_key = key
 app.permanent_session_lifetime = timedelta(minutes=10) # session will last 10 minutes
