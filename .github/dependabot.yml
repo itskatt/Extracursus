@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "ip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
