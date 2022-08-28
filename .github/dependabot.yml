@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: "ip"
+  - package-ecosystem: "pip"
     directory: "/"
     schedule:
       interval: "weekly"
