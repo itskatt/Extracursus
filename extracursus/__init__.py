@@ -8,6 +8,8 @@ from functools import lru_cache
 from flask import (Flask, abort, make_response, redirect, render_template,
                    request, send_file, send_from_directory, session)
 from flask_assets import Environment
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from flask_talisman import Talisman
 
 from .intra_client import IntraClient
@@ -26,6 +28,12 @@ app.permanent_session_lifetime = timedelta(minutes=10) # session will last 10 mi
 
 Environment(app)
 Talisman(app, content_security_policy=None)
+
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    storage_uri="memory://"
+)
 
 active_clients = {}
 
@@ -74,6 +82,8 @@ def index():
 
 # Login -------------------------------------------------------
 @app.route("/login", methods=["POST"])
+@limiter.limit("5 per minute")
+@limiter.limit("1 per second")
 def login():
     data = request.get_json()
     if not data:

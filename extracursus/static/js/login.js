@@ -43,7 +43,7 @@ async function login() {
 
     // We start the loader
     loader.style.display = "flex"
-    
+
     // we send it to the server
     // TODO: rewrite to use callbacks to catch net::ERR_CONNECTION_RESET
     console.log(`${username} is logging in...`)
@@ -59,9 +59,21 @@ async function login() {
         })
     })
 
+    // Are we being ratelimited ?
+    if (resp.status == 429) {
+        console.log("We are being rate limited")
+        alert("Trop de requêtes ! Vous devez attendre avant d'essayer de vous connecter à nouveau.")
+
+        // Reset
+        loader.style.display = "none";
+        form.elements[0].disabled = false
+        return
+    }
+
     // has everything happened correctly ?
     if (!resp.ok) {
         console.log(`Error in request (status ${resp.status})`)
+        alert("Une erreur s'est produite, veuillez regarder la console.")
         return
     }
 
@@ -69,16 +81,15 @@ async function login() {
     let json =  await resp.json()
 
     // login was successfull
-    if (json.sucess) { 
+    if (json.sucess) {
         console.log("Login sucessful")
-        console.log(json.semesters)
 
         createSemSelection(json.semesters)
         document.getElementById("semester-select").classList.remove("invisible")
     }
 
     // login failed
-    else { 
+    else {
         form.elements[0].disabled = false
         console.log("Login failed")
     }
