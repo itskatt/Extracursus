@@ -97,25 +97,31 @@ main {
     display: var(--emptyDisplay);
 }
 
+/* Header of the pdf */
+.header-data {
+    list-style-type: "➔";
+    font-size: 1.2rem;
+}
+
 /* the list of grades ======= */
-ul {
+.grades {
     list-style-type: none;
     padding-left: 0;
     margin-top: 0;
     margin-bottom: 2rem;
 }
 
-li {
+.grades li {
     padding-bottom: 1.5em;
 
     background-color: var(--primary);
 }
 
-li + li {
+.grades li + li {
     margin-top: 2rem;
 }
 
-li > *:not(h2) {
+.grades li > *:not(h2) {
     margin-left: 1.5em;
     margin-right: 1.5em;
 }

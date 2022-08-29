@@ -128,13 +128,29 @@ def extract_subjects(text):
 
     return out
 
-def get_grades(pdf):
-    return extract_subjects(extract_text(pdf))
+def extract_header_data(text):
+    lines = text.split("Nombre d'absences")[0].splitlines()
+
+    adm = avg = pos = ""
+    for line in lines:
+        if line.startswith("Décision"):
+            adm = line.split(":")[-1].strip()
+        elif line.startswith("Moyenne"):
+            avg = line.split(":")[-1].strip()
+        elif line.startswith("Classement"):
+            pos = line.split(":")[-1].strip()
+
+    return adm, avg, pos
 
 def get_pdf_data(pdf):
-    # TODO include average, position, admission results
+    text = extract_text(pdf)
+    adm, avg, pos = extract_header_data(text)
+
     return {
-        "grades": get_grades(pdf)
+        "grades": extract_subjects(text),
+        "admission": adm,
+        "average": avg,
+        "position": pos
     }
 
 
@@ -145,7 +161,9 @@ if __name__ == "__main__":
     with open("../semestre_TBFS2T.pdf", "rb") as f:
         pdf = f.read()
 
-    grades = get_grades(pdf)
+    grades = extract_subjects(extract_text(pdf))
     # grades = extract_text(pdf)
     # print(grades)
     pprint(grades, sort_dicts=False)
+
+    pprint(extract_header_data(extract_text(pdf)))

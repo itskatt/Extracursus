@@ -22,8 +22,25 @@
         </div>
     </div>
     <hr>
-    {# TODO : display average, position,... #}
-    <ul>
+
+    {% if pdf_data["admission"] or pdf_data["average"] or pdf_data["position"] %}
+        <ul class="header-data">
+            {% if pdf_data["admission"] %}
+                <li>Résultat d'admission&nbsp;: <b>{{ pdf_data["admission"] }}</b></li>
+            {% endif %}
+
+            {% if pdf_data["average"] %}
+                <li>Moyenne générale&nbsp;: <b>{{ pdf_data["average"] }}</b></li>
+            {% endif %}
+            
+            {% if pdf_data["position"] %}
+                <li>Position dans le classement&nbsp;: <b>{{ pdf_data["position"] }}</b></li>
+             {% endif %}
+        </ul>
+        <hr>
+    {% endif %}
+
+    <ul class="grades">
         {% for sub in pdf_data["grades"] %}
         <li class="{{ sub['empty'] }}">
             <h2>{{ sub["name"] }}</h2>
