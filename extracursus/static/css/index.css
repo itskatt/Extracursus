@@ -86,10 +86,6 @@ input[type="text"], input[type="password"] {
     background-color: var(--input);
 }
 
-input[type="submit"]:disabled {
-    background-color: var(--acent-dark);
-}
-
 #semester-form fieldset {
     display: flex;
     flex-direction: column-reverse;
