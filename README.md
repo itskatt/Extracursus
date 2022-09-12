@@ -29,7 +29,7 @@ To get a running copy of *Extracursus*, please follow the following instructions
    - #### Pip requirements
    
       ```sh
-      pip install -r --user requirements.txt
+      pip install --user -r requirements.txt
       ```
 
       *Note: if you wish not to pollute your environement, you can use a [virtual environement](https://docs.python.org/3/library/venv.html)*
