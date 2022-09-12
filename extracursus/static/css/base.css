@@ -105,6 +105,7 @@ body header h2 {
   max-width: 1000px;
   height: 100vh;
   text-align: center;
+  display: none;
 }
 #loader > span {
   color: var(--Headline);
