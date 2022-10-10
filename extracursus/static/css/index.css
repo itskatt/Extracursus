@@ -1,178 +1,161 @@
-.login-form > h2, .semester-select > h2 {
-  font-weight: normal;
-  text-align: center;
-  color: var(--Headline);
-}
-.login-form > form, .semester-select > form {
-  width: 100%;
-  border-radius: 15px;
-}
-.login-form > form > fieldset, .semester-select > form > fieldset {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  border: none;
-  width: 300px;
-  margin: auto;
-}
-.login-form > form > fieldset > div, .semester-select > form > fieldset > div {
-  width: 80%;
-  margin: auto auto 20px;
-}
-.login-form > form > fieldset > div > label, .semester-select > form > fieldset > div > label {
-  color: var(--Paragraphe);
-}
-.login-form > form > fieldset > div input, .semester-select > form > fieldset > div input {
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid var(--Secondary);
-  font-size: 20px;
-  background-color: var(--Main);
-  color: var(--Paragraphe);
-}
-.login-form > form > fieldset > div input:focus, .semester-select > form > fieldset > div input:focus {
-  outline: solid 2px var(--Highlight);
-}
-.login-form > form > fieldset div:last-of-type, .semester-select > form > fieldset div:last-of-type {
-  display: flex;
-  justify-content: center;
-  user-select: none;
-}
-.login-form > form > fieldset div:last-of-type > input, .semester-select > form > fieldset div:last-of-type > input {
-  border: none;
-  border-radius: 20px;
-  background-color: var(--Button);
-  height: 40px;
-  width: 40px;
-  color: transparent;
-  text-align: left;
-  font-weight: normal;
-  font-size: 14px;
-  transition: 1s;
-}
-.login-form > form > fieldset div:last-of-type > span, .semester-select > form > fieldset div:last-of-type > span {
-  pointer-events: none;
-  margin-top: 8px;
-  margin-left: 2px;
-  position: absolute;
-  color: white;
-  background-color: var(--Button);
-  border-radius: 100%;
-  transition: 0.95s;
-}
-.login-form > form > fieldset div:last-of-type > input:hover, .semester-select > form > fieldset div:last-of-type > input:hover {
-  color: white;
-  padding-left: 9px;
-  width: 90%;
-  font-weight: normal;
-}
-.login-form > form > fieldset div:last-of-type > input:hover ~ span, .semester-select > form > fieldset div:last-of-type > input:hover ~ span {
-  margin-left: 172px;
-  box-shadow: -2px 0px 4px 2px var(--Button);
+@charset "utf8";
+
+/* alex-brush-regular - latin */
+@font-face {
+    font-family: "Alex Brush";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: local(""),
+        url("../fonts/alex-brush-v18-latin-regular.woff2") format("woff2"),
+        /* Super Modern Browsers */
+        url("../fonts/alex-brush-v18-latin-regular.woff") format("woff"),
+        /* Modern Browsers */
+        url("../fonts/alex-brush-v18-latin-regular.ttf") format("truetype"),
+        /* Safari, Android, iOS */
+        url("../fonts/alex-brush-v18-latin-regular.svg#AlexBrush") format("svg");
+    /* Legacy iOS */
 }
 
-#semester-form {
-  margin-top: -20px;
-}
-#semester-form > fieldset {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-}
-#semester-form > fieldset > ul {
-  list-style: none;
-  padding: 0;
-  width: 50%;
-}
-#semester-form > fieldset > ul input {
-  position: absolute;
-  left: 0;
-  opacity: 0.01;
-}
-#semester-form > fieldset > ul input:checked + label {
-  background-color: var(--Highlight);
-  color: var(--Background);
-}
-#semester-form > fieldset > ul input:not(:checked) + label {
-  background-color: var(--Background);
-  color: var(--Headline);
-}
-#semester-form > fieldset > ul label {
-  transition: 1s;
-  padding-top: 4px;
-  text-align: center;
-  display: block;
-  cursor: pointer;
-  height: 30px;
-  margin-bottom: 10px;
-  border-radius: 15px;
-  border: 2px solid var(--Highlight);
+/* to hide the 2nd form TODO */
+.invisible {
+    display: none;
 }
 
-footer {
-  max-width: 1000px;
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  font-size: 12px;
-  color: var(--Paragraphe);
-  padding: 3px 3px 0;
+/* titles */
+h1 {
+    font-family: "Alex Brush", "Brush Script MT", cursive;
+    font-size: 4em;
+
+    background-color: var(--background);
+    display: inline-block;
 }
 
-@media screen and (min-width: 600px) {
-  .login-form > h2, .semester-select > h2 {
-    font-size: 35px;
-  }
-  .login-form > form > fieldset, .semester-select > form > fieldset {
-    width: 380px;
-  }
-  .login-form > form > fieldset > div > label, .semester-select > form > fieldset > div > label {
-    font-size: 20px;
-  }
-  .login-form > form > fieldset > div input, .semester-select > form > fieldset > div input {
-    font-size: 23px;
-  }
-  .login-form > form > fieldset div:last-of-type > input, .semester-select > form > fieldset div:last-of-type > input {
-    border-radius: 25px;
-    height: 50px;
-    width: 50px;
-    font-size: 18px;
-  }
-  .login-form > form > fieldset div:last-of-type > span, .semester-select > form > fieldset div:last-of-type > span {
-    margin-top: 13px;
-  }
-  .login-form > form > fieldset div:last-of-type > input:hover, .semester-select > form > fieldset div:last-of-type > input:hover {
-    color: white;
-    padding-left: 15px;
-    width: 90%;
-    font-weight: normal;
-  }
-  .login-form > form > fieldset div:last-of-type > input:hover ~ span, .semester-select > form > fieldset div:last-of-type > input:hover ~ span {
-    margin-left: 210px;
-    box-shadow: -4px 0 10px 5px var(--Button);
-  }
-  #semester-form > fieldset > ul {
-    width: 45%;
-  }
-  #semester-form > fieldset > ul input {
+main {
+    width: min(250px, 100%);
+}
+
+/* the container of both forms on this page */
+section {
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+
+    background-color: var(--primary);
+
+    /* box-shadow: var(--shadow); */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px;
+}
+
+section > *:not(h2) {
+    margin: 0 1em;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+
+    padding: 0;
+
+    border: none;
+}
+
+.login-row {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    padding: 10px;
+
+    border-radius: 15px;
+
+    background-color: var(--background);
+}
+
+fieldset:disabled .login-row {
+    background-color: lightgray;
+}
+
+input[type="text"], input[type="password"] {
+    border: none;
+    outline: none;
+
+    padding: 5px;
+
+    background-color: var(--input);
+}
+
+input[type="submit"]:disabled {
+    background-color: var(--acent-dark);
+}
+
+#semester-form fieldset {
+    display: flex;
+    flex-direction: column-reverse;
+
+    margin: 0 auto;
+}
+
+#semester-form ul {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    padding: 0;
+    width: 100%;
+}
+
+ul > li {
+    display: flex;
+    gap: 0.3em;
+}
+
+/* sus */
+#sus {
+    position: relative;
+    transition: color 7s ease;
+}
+
+#sus:hover {
+    color: red;
+}
+
+@keyframes sus-fall {
+    30% {
+        transform: translateX(50px) rotate(90deg);
+    }
+    35% {
+        transform: translateX(60px) rotate(90deg);
+    }
+    100% {
+        transform: translateY(max(85vh, 500px)) translateX(150px) rotate(180deg);
+    }
+}
+
+#sus::after {
+    content: url("/static/img/sus.png");
     position: absolute;
     left: 0;
-    opacity: 0.01;
-  }
-  #semester-form > fieldset > ul input:checked + label {
-    background-color: var(--Highlight);
-    color: var(--Background);
-  }
-  #semester-form > fieldset > ul input:not(:checked) + label {
-    background-color: var(--Background);
-    color: var(--Headline);
-  }
-  #semester-form > fieldset > ul label {
-    font-size: 18px;
-    padding-top: 6px;
-    height: 35px;
-    margin-bottom: 10px;
-  }
+
+    z-index: -1;
 }
 
-/*# sourceMappingURL=index.css.map */
+#sus.falling::after {
+    animation: 2.5s ease-in normal sus-fall;
+}
+
+#cur.extra-sus {
+    font-size: 0;
+    transition: font-size 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#extra.extra-sus::after {
+    content: "-";
+}
+
+#sus2 {
+    cursor: pointer;
+}

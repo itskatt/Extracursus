@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap");
 :root {
+  --Background-pattern: url(../img/blue_background.png) ;
   --Background: #fffffe;
   --Headline: #094067;
   --Paragraphe: #5f6c7b;
@@ -16,6 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --Background-pattern: url(../img/dark_background.png) ;
     --Background: #121212;
     --Headline: #fffffe;
     --Paragraphe: rgba(255, 255, 255, 0.9);
@@ -71,10 +73,11 @@ body header h2 {
 }
 @media screen and (min-width: 1000px) {
   html {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, var(--Highlight), #23d5ab);
-    backdrop-filter: blur(10px);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    /*background: linear-gradient(-45deg, #ee7752, #e73c7e, var(--Highlight), #23d5ab);*/
+    /*background-size: 400% 400%;*/
+    /*animation: gradient 15s ease infinite;*/
+    background-image: var(--Background-pattern);
+    background-repeat: repeat;
   }
   body header > h1 {
     font-size: 70px;
@@ -105,7 +108,6 @@ body header h2 {
   max-width: 1000px;
   height: 100vh;
   text-align: center;
-  display: none;
 }
 #loader > span {
   color: var(--Headline);
