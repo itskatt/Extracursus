@@ -53,7 +53,7 @@ Congratulations, you have successfully installed the app, now you can either:
    - Run the app in debug mode (for development):
      
      ```sh
-     export FLASK_DEBUG=true
+     export FLASK_DEBUG=1
      export FLASK_APP=extracursus
      flask run
      ```
