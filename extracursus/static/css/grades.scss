@@ -244,7 +244,7 @@ $blur: 0.03px;
   }
 
   &.bottom {
-    margin-top: -45px;
+    margin-top: -70px;
     @include gradual-blur($steps, $blur);
   }
 

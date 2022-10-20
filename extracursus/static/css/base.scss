@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap');
 
 :root {
-  //Elements
+//Elements
   --Background: #fffffe;
   --Headline: #094067;
   --Paragraphe: #5f6c7b;
@@ -11,7 +11,7 @@
   --ButtonText: #fffffe;
   --Background-modele: url("../img/blue_background.png");
 
-  //Illustration
+//Illustration
   --Stroke: #094067;
   --Main: #fffffe;
   --Highlight: #3da9fc;
@@ -20,8 +20,8 @@
   --Tertiary: #eaf1ff;
 
 
-  //Shadow
-  --shadow-classique: 5px 5px 20px 0px rgba(0, 0, 0, 0.75);
+//Shadow
+  --shadow-classique: 5px 5px 20px 0px rgba(80, 80, 80, 0.55);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -70,12 +70,34 @@ body {
       padding-top: 25px;
       text-align: center;
       color: var(--Highlight-HeadLine);
-      font-size: 50px;
+      font-size: 80px;
       font-weight: bolder;
+      margin-bottom: 20px;
+
+      &:after {
+        position: absolute;
+        content: ' ';
+        height: 2px;
+        width: 100px;
+        background-color: var(--Stroke);
+        left: 0;
+        right: 0;
+        margin: 100px auto;
+        animation: agrandissementBar 1s ease-out ;
+
+        @keyframes agrandissementBar {
+          from {
+            transform: scaleX(0);
+          }
+          to {
+            transform: scaleX(1);
+          }
+        }
+      }
     }
 
     h2 {
-      font-size: 25px;
+      font-size: 30px;
       color: var(--Headline);
       text-align: center;
     }

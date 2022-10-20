@@ -12,7 +12,7 @@
   --Highlight-HeadLine: #3da9fc;
   --Secondary: rgba(219, 228, 248, 0.33);
   --Tertiary: #eaf1ff;
-  --shadow-classique: 5px 5px 20px 0px rgba(0, 0, 0, 0.75);
+  --shadow-classique: 5px 5px 20px 0px rgba(80, 80, 80, 0.55);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,11 +54,31 @@ body header h1 {
   padding-top: 25px;
   text-align: center;
   color: var(--Highlight-HeadLine);
-  font-size: 50px;
+  font-size: 80px;
   font-weight: bolder;
+  margin-bottom: 20px;
+}
+body header h1:after {
+  position: absolute;
+  content: " ";
+  height: 2px;
+  width: 100px;
+  background-color: var(--Stroke);
+  left: 0;
+  right: 0;
+  margin: 100px auto;
+  animation: agrandissementBar 1s ease-out;
+}
+@keyframes agrandissementBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 body header h2 {
-  font-size: 25px;
+  font-size: 30px;
   color: var(--Headline);
   text-align: center;
 }
