@@ -40,13 +40,14 @@
 
 html {
   padding: 0;
+  background-image: var(--Background-modele);
 }
 
 body {
   margin: 0 auto;
   background-color: var(--Background);
   max-width: 1000px;
-  height: auto;
+  min-height: 100vh;
 }
 body header h1 {
   margin-top: 0;
@@ -89,26 +90,64 @@ body header div span {
     transform: translate(0);
   }
 }
-#Titre {
-  text-align: center;
+#loader {
+  padding-top: 38vh;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 5;
+  backdrop-filter: blur(6px);
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  height: 100vh;
+  text-align: center;
   align-items: center;
+}
+#loader > span {
+  color: var(--Headline);
+  font-size: 27px;
+  font-weight: bolder;
+}
+#loader > em {
+  font-size: 15px;
+  color: var(--Paragraphe);
+}
+#loader > div {
+  overflow: hidden;
+  margin-top: 20px;
+  display: flex;
   justify-content: center;
+  width: 1000px;
 }
-#Titre img {
-  width: 90px;
+#loader > div > div {
+  margin: 0 1px 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: var(--Headline);
+  -webkit-animation: slide-in-blurred-left 2s cubic-bezier(0.4, 0.25, 0.4, 0.75) infinite;
+  animation: slide-in-blurred-left 2s cubic-bezier(0.4, 0.3, 0.4, 0.7) infinite;
 }
-#Titre span {
-  color: var(--Highlight-HeadLine);
-  font-size: 85px;
-  font-weight: 500;
-  margin-top: -3px;
-  margin-left: -3px;
+#loader > div > div:nth-child(1) {
+  animation-delay: 0s;
+}
+#loader > div > div:nth-child(2) {
+  animation-delay: -0.075s;
+}
+#loader > div > div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+#loader > div > div:nth-child(4) {
+  animation-delay: -0.225s;
 }
 
 @media screen and (max-width: 1000px) {
   html {
     background: var(--Background-modele) repeat;
+  }
+  #loader > div {
+    width: 100vw;
   }
   body header > h1 {
     font-size: 70px;
@@ -146,56 +185,10 @@ body header div span {
     translate: -4px -2px;
     font-size: 60px;
   }
+  #loader > div {
+    width: 100vw;
+  }
 }
-#loader {
-  padding-top: 38vh;
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
-  backdrop-filter: blur(6px);
-  position: absolute;
-  width: 100vw;
-  max-width: 1000px;
-  height: 100vh;
-  text-align: center;
-}
-#loader > span {
-  color: var(--Headline);
-  font-size: 27px;
-  font-weight: bolder;
-}
-#loader > em {
-  font-size: 15px;
-  color: var(--Paragraphe);
-}
-#loader > div {
-  overflow: hidden;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-#loader > div > div {
-  margin: 0 1px 1px;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  background-color: var(--Headline);
-  -webkit-animation: slide-in-blurred-left 2s cubic-bezier(0.4, 0.25, 0.4, 0.75) infinite;
-  animation: slide-in-blurred-left 2s cubic-bezier(0.4, 0.3, 0.4, 0.7) infinite;
-}
-#loader > div > div:nth-child(1) {
-  animation-delay: 0s;
-}
-#loader > div > div:nth-child(2) {
-  animation-delay: -0.075s;
-}
-#loader > div > div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-#loader > div > div:nth-child(4) {
-  animation-delay: -0.225s;
-}
-
 @keyframes slide-in-blurred-left {
   0% {
     transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);

@@ -15,6 +15,10 @@
   width: 300px;
   margin: auto;
 }
+.login-form > form > fieldset > ul, .semester-select > form > fieldset > ul {
+  display: flex;
+  flex-direction: column-reverse;
+}
 .login-form > form > fieldset > div, .semester-select > form > fieldset > div {
   width: 80%;
   margin: auto auto 20px;

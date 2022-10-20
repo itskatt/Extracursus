@@ -1192,11 +1192,13 @@ input:not(:checked) ~ label:last-of-type {
 }
 
 footer {
+  text-align: center;
   margin-top: 30px;
   position: relative;
   display: block;
 }
 footer p {
+  color: var(--Paragraphe);
   margin-bottom: 0;
   padding: 3px 3px 10px;
 }
