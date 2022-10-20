@@ -9,7 +9,7 @@
   --Paragraphe: #5f6c7b;
   --Button: #3da9fc;
   --ButtonText: #fffffe;
-  --Background-modele: url("../img/blue_background.png") ;
+  --Background-modele: url("../img/blue_background.png");
 
   //Illustration
   --Stroke: #094067;
@@ -21,8 +21,9 @@
 
 
   //Shadow
-  --shadow-classique : 5px 5px 20px 0px rgba(0,0,0,0.75);
+  --shadow-classique: 5px 5px 20px 0px rgba(0, 0, 0, 0.75);
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     //Elements
@@ -31,7 +32,7 @@
     --Paragraphe: rgba(255, 255, 255, 0.9);
     --Button: #094067;
     --ButtonText: #fffffe;
-    --Background-modele: url("../img/dark_background.png") ;
+    --Background-modele: url("../img/dark_background.png");
 
     //Illustration
     --Stroke: #094067;
@@ -42,16 +43,15 @@
     --Tertiary: rgba(49, 66, 77, 0.47);
 
 
-
     //Shadow
-    --shadow-classique : 5px 5px 20px 0px rgba(0,0,0,0.75);
+    --shadow-classique: 5px 5px 20px 0px rgba(0, 0, 0, 0.75);
   }
 }
 
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  transition: font-size 1s , color 1s , background-color 1s ;
+  transition: font-size 1s, color 1s, background-color 1s;
 }
 
 html {
@@ -79,22 +79,66 @@ body {
       color: var(--Headline);
       text-align: center;
     }
+
+    div {
+      text-align: center;
+
+      svg {
+        transition: 0.5s;
+        margin-top: 40px;
+        overflow: visible;
+        height: 100px;
+
+        g > .Pen {
+          animation: AnimationPen 0.5s cubic-bezier(.57, .15, .5, 1.4);
+        }
+      }
+
+      span {
+        color: var(--Highlight-HeadLine);
+        translate: -2px -5px;
+        display: inline-block;
+        font-size: 130px;
+        font-weight: 500;
+      }
+    }
   }
 }
 
-@media screen and (min-width: 600px) {
-
-  body header {
-    h1 {
-      font-size: 60px;
-    }
-    h2 {
-      font-size: 40px;
-    }
+@keyframes AnimationPen {
+  from {
+    transform: translate(-120px, -200px);
+  }
+  to {
+    transform: translate(0);
   }
 }
 
-@media screen and (min-width: 1000px) {
+
+
+#Titre {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 90px;
+  }
+
+  span {
+    color: var(--Highlight-HeadLine);
+    font-size: 85px;
+    font-weight: 500;
+    margin-top: -3px;
+    margin-left: -3px;
+  }
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
 
   html {
     background: var(--Background-modele) repeat;
@@ -104,12 +148,52 @@ body {
     > h1 {
       font-size: 70px;
     }
+
     > h2 {
       font-size: 45px;
     }
+    div {
+      text-align: center;
+
+      svg {
+        margin-top: 40px;
+        height: 70px;
+      }
+
+      span {
+        translate: -4px -3px;
+        font-size: 90px;
+      }
+    }
+
   }
 }
 
+@media screen and (max-width: 600px) {
+
+  body header {
+    h1 {
+      font-size: 60px;
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+    div {
+      text-align: center;
+
+      svg {
+        margin-top: 30px;
+        height: 45px;
+      }
+
+      span {
+        translate: -4px -2px;
+        font-size: 60px;
+      }
+    }
+  }
+}
 
 
 //Loader
@@ -142,25 +226,29 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+
     > div {
       margin: 0 1px 1px;
       width: 20px;
       height: 20px;
       border-radius: 100%;
       background-color: var(--Headline);
-      -webkit-animation: slide-in-blurred-left 2s cubic-bezier(0.4, 0.25, 0.4, 0.75 ) infinite;
-      animation: slide-in-blurred-left 2s cubic-bezier(0.4, 0.30, 0.4, 0.70 ) infinite;
+      -webkit-animation: slide-in-blurred-left 2s cubic-bezier(0.4, 0.25, 0.4, 0.75) infinite;
+      animation: slide-in-blurred-left 2s cubic-bezier(0.4, 0.30, 0.4, 0.70) infinite;
 
-      &:nth-child(1){
+      &:nth-child(1) {
         animation-delay: -0s;
       }
-      &:nth-child(2){
+
+      &:nth-child(2) {
         animation-delay: -0.075s;
       }
-      &:nth-child(3){
+
+      &:nth-child(3) {
         animation-delay: -0.15s;
       }
-      &:nth-child(4){
+
+      &:nth-child(4) {
         animation-delay: -0.225s;
       }
     }
