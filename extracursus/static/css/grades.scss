@@ -270,11 +270,13 @@ $blur: 0.03px;
 
 
 footer {
+  text-align: center;
   margin-top: 30px;
   position: relative;
   display: block;
 
   p {
+    color: var(--Paragraphe);
     margin-bottom: 0;
     padding: 3px 3px 10px;
   }

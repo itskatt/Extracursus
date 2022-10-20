@@ -3,6 +3,8 @@
 {% block imports %}
     {% assets filter="cssmin", output="gen/index-bundle.css", "css/base.css", "css/index.css" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
+
+
     {% endassets %}
 
     {% assets filter="rjsmin", output="gen/login.min.js", "js/login.js" %}
@@ -10,7 +12,33 @@
     {% endassets %}
 {% endblock %}
 
-{% block title %}<span id="extra">Extra</span><span id="cur">cur</span><span id="sus">sus</span>{% endblock %}
+{% block title %}
+<div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570.75 412.51">
+        <defs>
+            <style>.cls-1 {
+                fill: var(--Highlight-HeadLine);
+            }
+            </style>
+        </defs>
+        <g id="Calque_1" data-name="Calque 1">
+            <path class="cls-1 E"
+                  d="M213.87,232.85H73.24v95.21h165V386.9H0V31.43H237.79V90.76H73.24v84.71H213.87Z"/>
+            <g class="Pen">
+                <rect class="cls-1" x="388.92" y="92.41" width="24.32" height="218.8"
+                      transform="translate(-43.61 263.83) rotate(-34.65)"/>
+                <path class="cls-1"
+                      d="M505.12,373.71a6,6,0,0,0,7.48,2,50.62,50.62,0,0,0,34.89,25.06l6.7,1.23,5.48,7.92a6.08,6.08,0,1,0,10-6.91l-5.48-7.92,1.22-6.7a50.63,50.63,0,0,0-11.11-41.5,6,6,0,0,0,1.79-3.15,6.07,6.07,0,0,0-1-4.55l-18.6-26.91-50,34.56Zm48.33,12.47-.58,3.19-3.19-.58a38.44,38.44,0,0,1-27-19.85l21.69-15A38.37,38.37,0,0,1,553.45,386.18Z"/>
+                <path class="cls-1"
+                      d="M315.13,2.63a6.06,6.06,0,0,0-8.45-1.55l-30,20.74a6.08,6.08,0,0,0-1.55,8.45l13.21,19.11a5.66,5.66,0,0,0,.43,1l10.39,15a6,6,0,0,0-1.38,8.3l24.18,35,25-17.29a6.87,6.87,0,0,1,8.41.66l131.31,190c1,2.27,1.3,3.9,1,5.43a6.08,6.08,0,0,1-2.52,3.91l-25,17.28,19.42,28.1,50-34.57L375.42,79.17l5-3.46,76,110a6.08,6.08,0,0,0,8.46,1.54l15-10.37a6.06,6.06,0,0,0,1.55-8.45l-96.76-140a6.07,6.07,0,0,0-8.46-1.55l-15,10.37a6.08,6.08,0,0,0-1.54,8.45l13.82,20-5,3.45-20.73-30a6.08,6.08,0,0,0-8.46-1.54L329,22.63Zm14.19,41.91-10.18,7-10,6.91-6.91-10,9.9-6.84,10.28-7.1ZM305.68,31.33l-10.18,7-6.91-10,20-13.83,6.91,10Z"/>
+            </g>
+            <path class="cls-1 X" d="M423.64,268.39,356.28,386.9H271.07l108.2-181.2Z"/>
+            <polygon class="cls-1 X" points="442.64 99.99 485.29 19.43 569.51 19.43 487 160.7 442.64 99.99"/>
+        </g>
+    </svg>
+<span>tracursus</span>
+</div>
+{% endblock %}
 
 {% block main %}
     {# Form for login info #}
@@ -23,13 +51,17 @@
                     <label for="username">Nom d'utilisateur :</label>
                     <input type="text" required name="username" id="username" placeholder="ab123456">
                 </div>
-    
+
                 <div class="login-row">
                     <label for="password">Mot de passe :</label>
                     <input type="password" required name="password" id="password" placeholder="••••••••">
                 </div>
-                
-                <input type="submit" value="Connection à Intracursus" class="pill-btn">
+                <div>
+                    <input type="submit" value="Connexion à Intracursus" class="pill-btn">
+                    <span class="material-symbols-outlined">
+                                arrow_forward_ios
+                        </span>
+                </div>
             </fieldset>
         </form>
     </section>
@@ -41,7 +73,12 @@
         <form onsubmit="getSemester()" id="semester-form">
             <fieldset>
                 {# Semesters inputs will go here #}
-                <input type="submit" value="Voir les notes du semestre" class="pill-btn">
+                <div>
+                    <input type="submit" value="Voir les notes du semestre" class="pill-btn">
+                    <span class="material-symbols-outlined">
+                                arrow_forward_ios
+                        </span>
+                </div>
             </fieldset>
         </form>
     </section>

@@ -10,22 +10,23 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{ url_for('static', filename='img/banner.png') }}">
     <meta property="og:description"
-        content="Marre de devoir télécharger un PDF pour voir vos notes ? Ce site est fait pour vous !">
+          content="Marre de devoir télécharger un PDF pour voir vos notes ? Ce site est fait pour vous !">
     <meta name="description"
-        content="Marre de devoir télécharger un PDF pour voir vos notes ? Ce site est fait pour vous !">
+          content="Marre de devoir télécharger un PDF pour voir vos notes ? Ce site est fait pour vous !">
     <meta property="og:url" content="https://extracursus.herokuapp.com/">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Extracursus">
 
-    <meta name="google-site-verification" content="AFgOvACPGINzLo-zLv6MYPq_Cz8qoza5VdQtC4H1Qwg" />
+    <meta name="google-site-verification" content="AFgOvACPGINzLo-zLv6MYPq_Cz8qoza5VdQtC4H1Qwg"/>
 
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/maskable_icon_x48.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/maskable_icon_x48.png') }}"
+          type="image/png">
     <meta name="theme-color" content="#77b5e4">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icons/maskable_icon_x192.png') }}">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="{{ url_for('static', filename='manifest.webmanifest') }}">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     {% block imports %}
     {% endblock %}
 
@@ -33,57 +34,57 @@
 </head>
 
 <body>
-    <noscript>
-        <div class="noscript">
-            <h1>Activez votre javascript&nbsp;!</h1>
-            <p>Extracursus ne peux pas fonctionner sans (<a
-                    href="https://www.google.com/search?q=comment+activer+javascript" target="_blank"
-                    rel="noopener noreferrer">comment faire&nbsp;??</a>)</p>
-        </div>
-    </noscript>
-    <div id="loader">
-        <span>Chargement en cours...</span>
-        <em>Cela prendra quelques secondes</em>
-
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+<noscript>
+    <div class="noscript">
+        <h1>Activez votre javascript&nbsp;!</h1>
+        <p>Extracursus ne peux pas fonctionner sans (<a
+                href="https://www.google.com/search?q=comment+activer+javascript" target="_blank"
+                rel="noopener noreferrer">comment faire&nbsp;??</a>)</p>
     </div>
+</noscript>
+<div id="loader">
+    <span>Chargement en cours...</span>
+    <em>Cela prendra quelques secondes</em>
 
-    <div class="wrapper">
-        <header>
-            <h1>{% block title %}{% endblock%}</h1>
-        </header>
-        <main>
-            {% block main %}
-            {% endblock %}
-        </main>
+    <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
-    <footer>
-        <p>
-            Ce site ne sauvegarde <b>PAS</b> votre mot de passe. Si quand même
-            vous n'avez pas confiance (et je vous félicite car il ne faut
-            jamais faire confiance à ce genre de sites sur internet), vous pouvez consulter librement la source
-            d'Extracur<span id="sus2">sus</span> <a href="https://github.com/itskatt/extracursus" target="_blank"
-                rel="noopener noreferrer">ici</a>, et vous trouverez aussi
-            des instructions pour télécharger et faire tourner votre propre
-            instance d'Extracursus dans un usage autorisé par la license.
-        </p>
-        <p>
-            <em>Version 15 &mdash; &copy; itskatt</em>
-        </p>
-    </footer>
+</div>
 
-    <script>
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("sw.js")
-            })
-        }
-    </script>
+<div class="wrapper">
+    <header>
+        {% block title %}{% endblock%}
+    </header>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+</div>
+<footer>
+    <p>
+        Extracur<span id="sus2">sus</span> ne sauvegarde <b>PAS</b> votre mot de passe. Si quand même
+        vous n'avez pas confiance vous pouvez consulter librement le <a href="https://github.com/itskatt/extracursus"
+                                                                        target="_blank" rel="noopener noreferrer">code
+        source
+        ici</a>, vous y trouverez aussi
+        des instructions pour télécharger et faire tourner votre propre
+        instance d'Extracursus dans un usage autorisé par la license.
+    </p>
+    <p>
+        <em>Version 17 &mdash; &copy; itskatt</em>
+    </p>
+</footer>
+
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("sw.js")
+        })
+    }
+</script>
 </body>
 
 </html>
