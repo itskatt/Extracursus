@@ -136,7 +136,13 @@ def pretty_grades():
     # if no semester is provided, we select the current one
     semester = request.args.get("sem", client.semesters[0])
 
-    pdf_data = dl_and_parse_pdf(user, semester)
+    if semester == "dev" and os.environ["FLASK_DEBUG"] == "1":
+        app.logger.info("Using local pdf")
+        with open("../semestre_TBFS2T.pdf", "rb",) as f:
+            pdf_data = get_pdf_data(f.read())
+    else:
+        pdf_data = dl_and_parse_pdf(user, semester)
+    
     return render_template("pretty_grades.html", semester=semester, pdf_data=pdf_data)
 
 # Load pdf -------------------------------------------------------------------------

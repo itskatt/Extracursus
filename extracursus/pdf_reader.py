@@ -31,6 +31,10 @@ def extract_subjects(text):
     # extraction des notes par matiere
     subjects = [m.start() for m in SUBJECTS_REGEX.finditer(text)]
 
+    # Aucunes notes trouvée parce que le pdf est vide
+    if not subjects:
+        return out
+
     # ici, on localise la fin de la dernière matière
     match = NON_SUBJECT_REGEX.search(text[subjects[-1]:])
     if match:
