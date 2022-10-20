@@ -671,7 +671,7 @@ input:not(:checked) ~ label:last-of-type {
   height: calc(100% - 200px);
 }
 .blur-container.bottom {
-  margin-top: -45px;
+  margin-top: -70px;
 }
 .blur-container.bottom .blur:nth-child(1) {
   backdrop-filter: blur(0.03px);
