@@ -1,19 +1,23 @@
 {% extends "base.html" %}
 
 {% block imports %}
-    {% assets filter="cssmin", output="gen/grades-bundle.css", "css/base.css", "css/grades.css" %}
-        <link rel="stylesheet" href="{{ ASSET_URL }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {% endassets %}
+{% assets filter="cssmin", output="gen/grades-bundle.css", "css/base.css", "css/grades.css" %}
+<link rel="stylesheet" href="{{ ASSET_URL }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endassets %}
 
-    {% assets filter="rjsmin", output="gen/grades.min.js", "js/grades.js" %}
-        <script defer src="{{ ASSET_URL }}"></script>
-    {% endassets %}
+{% assets filter="rjsmin", output="gen/grades.min.js", "js/grades.js" %}
+<script defer src="{{ ASSET_URL }}"></script>
+{% endassets %}
+{% endblock %}
+
+{% block page_title %}
+Notes du semestre {{ semester }} - Extracursus
 {% endblock %}
 
 {% block title %}
-    <h1>Extracursus</h1>
-    <h2>Notes du semestre {{ semester }}</h2>
+<h1>Extracursus</h1>
+<h2>Notes du semestre {{ semester }}</h2>
 {% endblock %}
 
 
@@ -26,7 +30,7 @@
                     <span>Moyenne générale</span>
                     <span id="moyenneGeneral">14.87<span>pts</span></span>
                 </div>
-                <span >Rang : <b id="rank">8/80</b></span>
+                <span>Rang : <b id="rank">8/80</b></span>
             </div>
         </div>
 
@@ -37,7 +41,7 @@
         </div>
         <div>
             <a href="/static/lib/web/viewer.html?file=%2Fpdf_dl%3Fsem%3DTBFS1T"
-               class="pill-btn material-symbols-outlined">plagiarism</a>
+                class="pill-btn material-symbols-outlined">plagiarism</a>
         </div>
         <div>
             <input onclick="toggleEmpty()" type="checkbox" id="hide">
@@ -153,31 +157,31 @@
     <div class='blur'></div>
     <div class='blur'></div>
 </div>
-    <ul>
-        {% for sub in subjects %}
-        <li class="{{ sub['empty'] }}">
-            <h2>{{ sub["name"] }}</h2>
-            <p>Prof : <em>{{ sub["teacher"] }}</em></p>
-            <p>Moyenne : {{ sub["average"] }}</p>
-            <table>
-                <tbody>
-                    {% for grade in sub["grades"] %}
-                    <tr>
-                        <td>{{ grade[0] }}</td>
-                        {% if grade[1]|length > 1 %}
-                            {# grade + coef #}
-                            <td>{{ grade[1][0] }} <sub>coef.&nbsp;{{ grade[1][1] }}</sub></td>
-                        {% else %}
-                            {# no grade #}
-                            <td>{{ grade[1][0] }}</td>
-                        {% endif %}
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for sub in subjects %}
+    <li class="{{ sub['empty'] }}">
+        <h2>{{ sub["name"] }}</h2>
+        <p>Prof : <em>{{ sub["teacher"] }}</em></p>
+        <p>Moyenne : {{ sub["average"] }}</p>
+        <table>
+            <tbody>
+                {% for grade in sub["grades"] %}
+                <tr>
+                    <td>{{ grade[0] }}</td>
+                    {% if grade[1]|length > 1 %}
+                    {# grade + coef #}
+                    <td>{{ grade[1][0] }} <sub>coef.&nbsp;{{ grade[1][1] }}</sub></td>
+                    {% else %}
+                    {# no grade #}
+                    <td>{{ grade[1][0] }}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </li>
+    {% endfor %}
+</ul>
 <div class='blur-container bottom'>
     <div class='blur'></div>
     <div class='blur'></div>
