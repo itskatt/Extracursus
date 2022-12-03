@@ -3,8 +3,6 @@
 {% block imports %}
     {% assets filter="cssmin", output="gen/index-bundle.css", "css/base.css", "css/index.css" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
-
-
     {% endassets %}
 
     {% assets filter="rjsmin", output="gen/login.min.js", "js/login.js" %}
@@ -12,13 +10,18 @@
     {% endassets %}
 {% endblock %}
 
+{% block page_title %}
+Extracursus
+{% endblock %}
+
 {% block title %}
 <div>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570.75 412.51">
         <defs>
-            <style>.cls-1 {
-                fill: var(--Highlight-HeadLine);
-            }
+            <style>
+                .cls-1 {
+                    fill: var(--Highlight-HeadLine);
+                }
             </style>
         </defs>
         <g id="Calque_1" data-name="Calque 1">

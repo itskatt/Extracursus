@@ -20,7 +20,7 @@
     <meta name="google-site-verification" content="AFgOvACPGINzLo-zLv6MYPq_Cz8qoza5VdQtC4H1Qwg"/>
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/maskable_icon_x48.png') }}"
-          type="image/png">
+        type="image/png">
     <meta name="theme-color" content="#77b5e4">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icons/maskable_icon_x192.png') }}">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     {% block imports %}
     {% endblock %}
 
-    <title>{{ self.title()|striptags }}</title>
+    <title>{% block page_title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -54,29 +54,31 @@
     </div>
 </div>
 
-<div class="wrapper">
-    <header>
-        {% block title %}{% endblock%}
-    </header>
-    <main>
-        {% block main %}
-        {% endblock %}
-    </main>
-</div>
-<footer>
-    <p>
-        Extracur<span id="sus2">sus</span> ne sauvegarde <b>PAS</b> votre mot de passe. Si quand même
-        vous n'avez pas confiance vous pouvez consulter librement le <a href="https://github.com/itskatt/extracursus"
-                                                                        target="_blank" rel="noopener noreferrer">code
-        source
-        ici</a>, vous y trouverez aussi
-        des instructions pour télécharger et faire tourner votre propre
-        instance d'Extracursus dans un usage autorisé par la license.
-    </p>
-    <p class="copyright">
-        <em>Version 17 &mdash; &copy; itskatt</em>
-    </p>
-</footer>
+
+    <div class="wrapper">
+        <header>
+            {% block title %}
+            {% endblock%}
+        </header>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+    </div>
+    <footer>
+        <p>
+            Extracur<span id="sus2">sus</span> ne sauvegarde <b>PAS</b> votre mot de passe. Si quand même
+            vous n'avez pas confiance vous pouvez consulter librement le <a
+                href="https://github.com/itskatt/extracursus" target="_blank" rel="noopener noreferrer">code
+                source
+                ici</a>, vous y trouverez aussi
+            des instructions pour télécharger et faire tourner votre propre
+            instance d'Extracursus dans un usage autorisé par la license.
+        </p>
+        <p>
+            <em>Version 19 &mdash; &copy; itskatt</em>
+        </p>
+    </footer>
 
 <script>
     if ("serviceWorker" in navigator) {
