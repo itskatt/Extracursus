@@ -54,6 +54,9 @@
   font-size: 14px;
   transition: 1s;
 }
+.login-form > form > fieldset div:last-of-type > input.disabled, .login-form > form > fieldset div:last-of-type > input.disabled ~ span, .semester-select > form > fieldset div:last-of-type > input.disabled, .semester-select > form > fieldset div:last-of-type > input.disabled ~ span {
+  display: none;
+}
 .login-form > form > fieldset div:last-of-type > span, .semester-select > form > fieldset div:last-of-type > span {
   pointer-events: none;
   margin-top: 8px;
