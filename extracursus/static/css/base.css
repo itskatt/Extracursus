@@ -47,7 +47,7 @@ body {
   margin: 0 auto;
   background-color: var(--Background);
   max-width: 1000px;
-  min-height: 100vh;
+  min-height: max(950px, 100vh);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,10 +137,10 @@ body footer .copyright {
   position: absolute;
   width: 100vw;
   left: 0;
-  height: 100vh;
+  height: max(950px, 100vh);
   text-align: center;
   align-items: center;
-  display: none;
+  user-select: none;
 }
 #loader > span {
   color: var(--Headline);
