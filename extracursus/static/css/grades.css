@@ -159,6 +159,10 @@ input:not(:checked) ~ label:last-of-type {
   border-bottom-right-radius: 30px;
 }
 
+.shadow-blur, .blur-container {
+  left: calc((100vw - 1000px) / 2);
+}
+
 .blur-container {
   width: 100%;
   max-width: 1000px;
@@ -1191,18 +1195,6 @@ input:not(:checked) ~ label:last-of-type {
   margin-top: 40px;
 }
 
-footer {
-  text-align: center;
-  margin-top: 30px;
-  position: relative;
-  display: block;
-}
-footer p {
-  color: var(--Paragraphe);
-  margin-bottom: 0;
-  padding: 3px 3px 10px;
-}
-
 @media screen and (min-width: 600px) {
   .top-container div {
     border-radius: 23px;
@@ -1250,6 +1242,11 @@ footer p {
   }
   .wrapper ul > li td {
     font-size: 18px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .shadow-blur, .blur-container {
+    left: 0;
   }
 }
 

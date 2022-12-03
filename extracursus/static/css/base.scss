@@ -64,6 +64,10 @@ body {
   background-color: var(--Background);
   max-width: 1000px;
   min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column ;
 
   a {
     color: var(--Highlight-HeadLine);
@@ -130,6 +134,20 @@ body {
       }
     }
   }
+
+  footer {
+    max-width: 1000px;
+    text-align: justify;
+    padding: 3px 10px 0;
+    font-size: 15px;
+    color: var(--Paragraphe);
+
+    .copyright {
+      text-align: center;
+    }
+
+  }
+
 }
 
 @keyframes AnimationPen {

@@ -230,6 +230,10 @@ $blur: 0.03px;
   }
 }
 
+.shadow-blur, .blur-container {
+  left: calc(calc(100vw - 1000px) / 2);
+}
+
 .blur-container {
   width: 100%;
   max-width: 1000px;
@@ -266,20 +270,7 @@ $blur: 0.03px;
   &.top {
     margin-top: 40px;
   }
-}
 
-
-footer {
-  text-align: center;
-  margin-top: 30px;
-  position: relative;
-  display: block;
-
-  p {
-    color: var(--Paragraphe);
-    margin-bottom: 0;
-    padding: 3px 3px 10px;
-  }
 }
 
 @media screen and (min-width: 600px) {
@@ -310,6 +301,7 @@ footer {
         }
       }
     }
+
 
 }
 
@@ -364,4 +356,8 @@ footer {
 
 }
 
-
+@media screen and (max-width: 1000px){
+  .shadow-blur , .blur-container {
+    left: 0;
+  }
+}

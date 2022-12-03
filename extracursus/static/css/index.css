@@ -113,16 +113,6 @@
   border: 2px solid var(--Highlight);
 }
 
-footer {
-  max-width: 1000px;
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  font-size: 15px;
-  color: var(--Paragraphe);
-  padding: 3px 3px 0;
-}
-
 @media screen and (min-width: 600px) {
   .login-form > h2, .semester-select > h2 {
     font-size: 35px;
