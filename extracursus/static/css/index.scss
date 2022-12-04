@@ -62,9 +62,17 @@
           font-weight: normal;
           font-size: 14px;
           transition: 1s;
+          cursor: pointer;
 
-          &.disabled, &.disabled ~ span {
-            display: none;
+          &:disabled {
+            cursor: initial;
+          }
+
+          &:disabled ~ span {
+            cursor: initial;
+            rotate: 90deg;
+            margin-top: 15px;
+
           }
         }
 
@@ -79,7 +87,7 @@
           transition: 0.95s;
         }
 
-        > input:hover {
+        > input:not(:disabled):hover {
           color: white;
           padding-left: 9px;
           width: 90%;
@@ -90,8 +98,6 @@
             box-shadow: -2px 0px 4px 2px var(--Button);
           }
         }
-
-
       }
     }
   }
@@ -176,7 +182,7 @@
             margin-top: 13px;
           }
 
-          > input:hover {
+          > input:not(:disabled):hover  {
             color: white;
             padding-left: 15px;
             width: 90%;

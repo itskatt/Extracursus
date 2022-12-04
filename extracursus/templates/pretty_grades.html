@@ -47,7 +47,7 @@
 
         #}
 
-        <div>
+        <div class="disabled">
             {#
                 Ce block if doit s'afficher uniquement si les résultats d'admission OU
                 la moyenne OU la position dans le classement est présente.
@@ -68,114 +68,25 @@
 
         </div>
         <div>
-            <label for="hide">Cacher les matières sans notes</label>
-            <input onclick="toggleEmpty()" type="checkbox" id="hide">
+            <div>
+                <a href="/pdf_dl?sem=TBFS1T" class="pill-btn material-symbols-outlined">file_download</a>
+            </div>
+            <div>
+                <a href="/static/lib/web/viewer.html?file=%2Fpdf_dl%3Fsem%3DTBFS1T"
+                   class="pill-btn material-symbols-outlined">plagiarism</a>
+            </div>
+            <div>
+                <input onclick="toggleEmpty()" type="checkbox" id="hide">
+                <label for="hide" class="material-symbols-outlined">visibility</label>
+                <label for="hide" class="material-symbols-outlined">visibility_off</label>
+            </div>
+        <div>
+            <img src="../static/img/susBig.png" alt="Sus">
         </div>
     </div>
-
-    <div class="shadow-blur top"></div>
-    <div class='blur-container top'>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
     </div>
+
+<div class="separator"></div>
 
     <ul>
         {% for sub in pdf_data["grades"] %}
@@ -203,108 +114,7 @@
         {% endfor %}
     </ul>
 
-    <div class='blur-container bottom'>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-        <div class='blur'></div>
-    </div>
+<div class="separator"></div>
 
-    <div class="shadow-blur bottom"></div>
+
 {% endblock %}

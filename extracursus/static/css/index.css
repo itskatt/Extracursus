@@ -53,9 +53,15 @@
   font-weight: normal;
   font-size: 14px;
   transition: 1s;
+  cursor: pointer;
 }
-.login-form > form > fieldset div:last-of-type > input.disabled, .login-form > form > fieldset div:last-of-type > input.disabled ~ span, .semester-select > form > fieldset div:last-of-type > input.disabled, .semester-select > form > fieldset div:last-of-type > input.disabled ~ span {
-  display: none;
+.login-form > form > fieldset div:last-of-type > input:disabled, .semester-select > form > fieldset div:last-of-type > input:disabled {
+  cursor: initial;
+}
+.login-form > form > fieldset div:last-of-type > input:disabled ~ span, .semester-select > form > fieldset div:last-of-type > input:disabled ~ span {
+  cursor: initial;
+  rotate: 90deg;
+  margin-top: 15px;
 }
 .login-form > form > fieldset div:last-of-type > span, .semester-select > form > fieldset div:last-of-type > span {
   pointer-events: none;
@@ -67,13 +73,13 @@
   border-radius: 100%;
   transition: 0.95s;
 }
-.login-form > form > fieldset div:last-of-type > input:hover, .semester-select > form > fieldset div:last-of-type > input:hover {
+.login-form > form > fieldset div:last-of-type > input:not(:disabled):hover, .semester-select > form > fieldset div:last-of-type > input:not(:disabled):hover {
   color: white;
   padding-left: 9px;
   width: 90%;
   font-weight: normal;
 }
-.login-form > form > fieldset div:last-of-type > input:hover ~ span, .semester-select > form > fieldset div:last-of-type > input:hover ~ span {
+.login-form > form > fieldset div:last-of-type > input:not(:disabled):hover ~ span, .semester-select > form > fieldset div:last-of-type > input:not(:disabled):hover ~ span {
   margin-left: 172px;
   box-shadow: -2px 0px 4px 2px var(--Button);
 }
@@ -138,13 +144,13 @@
   .login-form > form > fieldset div:last-of-type > span, .semester-select > form > fieldset div:last-of-type > span {
     margin-top: 13px;
   }
-  .login-form > form > fieldset div:last-of-type > input:hover, .semester-select > form > fieldset div:last-of-type > input:hover {
+  .login-form > form > fieldset div:last-of-type > input:not(:disabled):hover, .semester-select > form > fieldset div:last-of-type > input:not(:disabled):hover {
     color: white;
     padding-left: 15px;
     width: 90%;
     font-weight: normal;
   }
-  .login-form > form > fieldset div:last-of-type > input:hover ~ span, .semester-select > form > fieldset div:last-of-type > input:hover ~ span {
+  .login-form > form > fieldset div:last-of-type > input:not(:disabled):hover ~ span, .semester-select > form > fieldset div:last-of-type > input:not(:disabled):hover ~ span {
     margin-left: 210px;
     box-shadow: -4px 0 10px 5px var(--Button);
   }

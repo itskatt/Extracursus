@@ -56,6 +56,9 @@ body {
 body a {
   color: var(--Highlight-HeadLine);
 }
+body .wrapper {
+  width: 100%;
+}
 body header h1 {
   margin-top: 0;
   padding-top: 25px;
@@ -129,15 +132,15 @@ body footer .copyright {
 }
 #loader {
   padding-top: 38vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 10px;
   z-index: 5;
   backdrop-filter: blur(6px);
-  position: absolute;
+  position: fixed;
   width: 100vw;
   left: 0;
-  height: max(950px, 100vh);
+  height: 100vh;
   text-align: center;
   align-items: center;
   user-select: none;
