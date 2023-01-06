@@ -32,15 +32,28 @@ main {
   opacity: 1;
   position: absolute;
   transform-origin: center;
-  animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate, susColor infinite 4s;
+  -webkit-animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate, susColor infinite 4s;
+          animation: moveX 2s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate, susColor infinite 4s;
 }
 .top-container div > div > img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 100%;
   height: 100%;
   opacity: 0;
   z-index: 5;
   transition: opacity 6s;
+}
+@-webkit-keyframes susColor {
+  0% {
+    filter: hue-rotate(0);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+  100% {
+    filter: hue-rotate(180deg);
+  }
 }
 @keyframes susColor {
   0% {
@@ -53,12 +66,28 @@ main {
     filter: hue-rotate(180deg);
   }
 }
+@-webkit-keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100vw - 210px);
+  }
+}
 @keyframes moveX {
   from {
     left: 0;
   }
   to {
     left: calc(100vw - 210px);
+  }
+}
+@-webkit-keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: 98vh;
   }
 }
 @keyframes moveY {
@@ -153,13 +182,13 @@ input:not(:checked) ~ label:last-of-type {
   width: 98%;
   list-style: none;
   display: flex;
+  gap: 1em;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   padding: 0;
   flex-shrink: 0;
   position: relative;
-  box-shadow: inset;
 }
 .wrapper ul > li {
   box-shadow: var(--shadow-classique);
@@ -191,7 +220,7 @@ input:not(:checked) ~ label:last-of-type {
   background-color: var(--Secondary);
 }
 .wrapper ul > li table tbody tr td {
-  padding-top: 3px;
+  padding: 1em;
   height: 35px;
   color: var(--Paragraphe);
 }
@@ -273,6 +302,4 @@ input:not(:checked) ~ label:last-of-type {
   .wrapper ul > li td {
     font-size: 18px;
   }
-}
-
-/*# sourceMappingURL=grades.css.map */
+}/*# sourceMappingURL=grades.css.map */

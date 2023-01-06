@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap');
 
 :root {
-//Elements
+  //Elements
   --Background: #fffffe;
   --Headline: #094067;
   --Paragraphe: #5f6c7b;
@@ -11,7 +11,7 @@
   --ButtonText: #fffffe;
   --Background-modele: url("../img/blue_background.png");
 
-//Illustration
+  //Illustration
   --Stroke: #094067;
   --Main: #fffffe;
   --Highlight: #3da9fc;
@@ -20,7 +20,7 @@
   --Tertiary: #eaf1ff;
 
 
-//Shadow
+  //Shadow
   --shadow-classique: 5px 5px 20px 0px rgba(80, 80, 80, 0.55);
 }
 
@@ -51,7 +51,6 @@
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  transition: font-size 1s, color 1s, background-color 1s;
 }
 
 html {
@@ -67,7 +66,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: column ;
+  flex-direction: column;
 
   a {
     color: var(--Highlight-HeadLine);
@@ -87,21 +86,24 @@ body {
       font-weight: bolder;
       margin-bottom: 20px;
 
-      &:after {
-        position: absolute;
-        content: ' ';
-        height: 2px;
-        width: 100px;
-        background-color: var(--Stroke);
-        left: 0;
-        right: 0;
-        margin: 100px auto;
-        animation: agrandissementBar 1s ease-out ;
+      @media screen and (min-width: 322px) {
+        &:after {
+          position: absolute;
+          content: ' ';
+          height: 2px;
+          width: 100px;
+          background-color: var(--Stroke);
+          left: 0;
+          right: 0;
+          margin: 100px auto;
+          animation: agrandissementBar 1s ease-out;
+        }
 
         @keyframes agrandissementBar {
           from {
             transform: scaleX(0);
           }
+
           to {
             transform: scaleX(1);
           }
@@ -124,7 +126,7 @@ body {
         overflow: visible;
         height: 100px;
 
-        g > .Pen {
+        g>.Pen {
           animation: AnimationPen 0.5s cubic-bezier(.57, .15, .5, 1.4);
         }
       }
@@ -143,11 +145,17 @@ body {
     max-width: 1000px;
     text-align: justify;
     padding: 3px 10px 0;
+    padding-bottom: 1em;
     font-size: 15px;
     color: var(--Paragraphe);
 
     .copyright {
       text-align: center;
+    }
+
+    p {
+      max-width: 90%;
+      margin: 0 auto;
     }
 
   }
@@ -158,6 +166,7 @@ body {
   from {
     transform: translate(-120px, -200px);
   }
+
   to {
     transform: translate(0);
   }
@@ -180,25 +189,25 @@ body {
   align-items: center;
   user-select: none;
 
-  > span {
+  >span {
     color: var(--Headline);
     font-size: 27px;
     font-weight: bolder;
   }
 
-  > em {
+  >em {
     font-size: 15px;
     color: var(--Paragraphe);
   }
 
-  > div {
+  >div {
     overflow: hidden;
     margin-top: 20px;
     display: flex;
     justify-content: center;
     width: 1000px;
 
-    > div {
+    >div {
       margin: 0 1px 1px;
       width: 20px;
       height: 20px;
@@ -234,18 +243,19 @@ body {
     background: var(--Background-modele) repeat;
   }
 
-  #loader > div {
+  #loader>div {
     width: 100vw;
   }
 
   body header {
-    > h1 {
+    >h1 {
       font-size: 70px;
     }
 
-    > h2 {
+    >h2 {
       font-size: 45px;
     }
+
     div {
       text-align: center;
 
@@ -267,12 +277,13 @@ body {
 
   body header {
     h1 {
-      font-size: 60px;
+      font-size: 57px;
     }
 
     h2 {
       font-size: 40px;
     }
+
     div {
       text-align: center;
 
@@ -288,7 +299,7 @@ body {
     }
   }
 
-  #loader > div {
+  #loader>div {
     width: 100vw;
   }
 }
@@ -303,6 +314,7 @@ body {
     filter: blur(40px);
     opacity: 0
   }
+
   45% {
     transform: translateX(-30px) scaleY(1) scaleX(1);
     -webkit-transform-origin: 50% 50%;
@@ -311,6 +323,7 @@ body {
     filter: blur(0);
     opacity: 1
   }
+
   55% {
     transform: translateX(30px) scaleY(1) scaleX(1);
     -webkit-transform-origin: 50% 50%;
@@ -319,6 +332,7 @@ body {
     filter: blur(0);
     opacity: 1
   }
+
   100% {
     transform: translateX(1000px) scaleY(2.5) scaleX(2.5);
     -webkit-transform-origin: 0 50%;

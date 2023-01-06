@@ -40,7 +40,10 @@
 .login-form > form > fieldset div:last-of-type, .semester-select > form > fieldset div:last-of-type {
   display: flex;
   justify-content: center;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .login-form > form > fieldset div:last-of-type > input, .semester-select > form > fieldset div:last-of-type > input {
   border: none;
@@ -104,7 +107,7 @@
 }
 #semester-form > fieldset > ul input:checked + label {
   background-color: var(--Highlight);
-  color: var(--Background);
+  color: var(--Headline);
 }
 #semester-form > fieldset > ul input:not(:checked) + label {
   background-color: var(--Background);
@@ -164,7 +167,7 @@
   }
   #semester-form > fieldset > ul input:checked + label {
     background-color: var(--Highlight);
-    color: var(--Background);
+    color: var(--Headline);
   }
   #semester-form > fieldset > ul input:not(:checked) + label {
     background-color: var(--Background);
@@ -176,6 +179,4 @@
     height: 35px;
     margin-bottom: 10px;
   }
-}
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

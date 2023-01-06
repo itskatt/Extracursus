@@ -192,13 +192,13 @@ input {
   width: 98%;
   list-style: none;
   display: flex;
+  gap: 1em;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   padding: 0;
   flex-shrink: 0;
   position: relative;
-  box-shadow: inset;
 
   > li {
     box-shadow: var(--shadow-classique);
@@ -237,7 +237,7 @@ input {
           }
 
           td {
-            padding-top: 3px;
+            padding: 1em;
             height: 35px;
             color: var(--Paragraphe);
 
