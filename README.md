@@ -64,6 +64,14 @@ Congratulations, you have successfully installed the app, now you can either:
      waitress-serve --port=8080 extracursus:app
      ```
 
+## Authors
+
+### Back end
+Raphaël Caldwell (itskatt) &mdash; https://github.com/itskatt
+
+### Front end
+Titouan Lacombe--Fabre (Tit0u4N) &mdash; https://github.com/Tit0u4N
+
 ## Licence
 
 See [LICENCE](LICENCE)
