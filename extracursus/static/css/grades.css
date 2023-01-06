@@ -98,7 +98,8 @@ main {
     top: 98vh;
   }
 }
-.top-container div > div > a, .top-container div > div label {
+.top-container div > div > a,
+.top-container div > div label {
   text-align: center;
   font-size: 3em;
   font-weight: bold;
@@ -261,7 +262,8 @@ input:not(:checked) ~ label:last-of-type {
   .top-container div {
     border-radius: 23px;
   }
-  .top-container div > div > a, .top-container div > div label {
+  .top-container div > div > a,
+.top-container div > div label {
     font-size: 75px;
   }
   .top-container div:first-of-type > div > div div > span {
@@ -279,7 +281,8 @@ input:not(:checked) ~ label:last-of-type {
   .top-container div {
     border-radius: 26px;
   }
-  .top-container div > div > a, .top-container div > div label {
+  .top-container div > div > a,
+.top-container div > div label {
     font-size: 95px;
   }
   .top-container div:first-of-type > div > div div > span {
