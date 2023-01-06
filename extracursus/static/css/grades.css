@@ -177,6 +177,10 @@ input:not(:checked) ~ label:last-of-type {
   transform: scale(0.8);
 }
 
+.empty {
+  display: var(--emptyDisplay);
+}
+
 .wrapper ul {
   margin: 0 auto auto;
   width: 98%;
@@ -229,7 +233,6 @@ input:not(:checked) ~ label:last-of-type {
   width: 80%;
 }
 .wrapper ul > li table tbody tr td:last-of-type {
-  padding-right: 5px;
   text-align: center;
 }
 .wrapper ul > li table tbody tr td sub {
@@ -238,7 +241,7 @@ input:not(:checked) ~ label:last-of-type {
 }
 .wrapper ul > li table tbody tr:last-of-type td {
   height: 40px;
-  padding-bottom: 8px;
+  padding-bottom: 14px;
 }
 .wrapper ul > li table tbody tr:last-of-type td:first-of-type {
   border-bottom-left-radius: 30px;
