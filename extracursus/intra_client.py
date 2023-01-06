@@ -8,11 +8,11 @@ class IntraClient:
     def __init__(self):
         self.sess = Session()
         self.sess.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-                          "(KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                          "(KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
         })
         self.semesters = []
-        self.current_sem_exists = False
+        self.current_semester = None
 
     def close(self):
         self.sess.close()
@@ -62,12 +62,13 @@ class IntraClient:
             "https://login.unice.fr/login?service=https%3A%2F%2Fintracursus2.unice.fr%2Fic%2Fdlogin%2Fcas.php")
         html_page = resp.text
 
-        semesters = []
+        semesters = {}
         # recuperation du semestre actuel
         # il se peut qu'il n'existe pas
         try:
-            semesters.append(html_page.split("<b>Relevé des notes et absences de ")[1].split()[0])
-            self.current_sem_exists = True
+            current_semester = html_page.split("<b>Relevé des notes et absences de ")[1].split()[0]
+            semesters[current_semester] = current_semester
+            self.current_semester = current_semester
         except IndexError:
             pass
 
@@ -76,25 +77,25 @@ class IntraClient:
             raw_semesters = html_page.split(
                 '<select id="idautreinscription" name="idautreinscription" size="1">')[1].split("</select>")[0].strip()
             for line in raw_semesters.splitlines():
-                semesters.append(
-                    line.split('value="')[1].split('"')[0]
-                )
+                id = line.split('value="')[1].split('"')[0]
+                name = line.split('">')[1].split()[0]
+                semesters[name] = id
         except Exception: # on a pas pu trouver d'autres semestres
             pass
 
         self.semesters = semesters
-        return semesters
+        return list(semesters.keys())
 
     def get_semester_pdf(self, semester):
         # semestre actuel
-        if semester == self.semesters[0] and self.current_sem_exists:
+        if self.current_semester and any(v == semester for v in self.semesters.values()):
             payload = {
             "telrelevepresences": f"Télécharger le relevé des notes et absences de {semester}"
         }
         # autre semestre
         else:
             payload = {
-                "idautreinscription": semester,
+                "idautreinscription": self.semesters[semester],
                 "telreleveanterieur": "Télécharger le relevé du parcours sélectionné"
             }
 

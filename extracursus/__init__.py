@@ -134,7 +134,7 @@ def pretty_grades():
         return redirect("/")
 
     # if no semester is provided, we select the current one
-    semester = request.args.get("sem", client.semesters[0])
+    semester = request.args.get("sem", client.current_semester)
 
     if semester == "dev" and os.environ["FLASK_DEBUG"] == "1":
         app.logger.info("Using local pdf")
@@ -156,7 +156,7 @@ def load_pdf():
     if client is None:
         return redirect("/")
 
-    semester = request.args.get("sem", client.semesters[0])
+    semester = request.args.get("sem", client.current_semester)
 
     app.logger.info(f"Loading {semester} pdf for {user}...")
     dl_pdf(user, semester)
@@ -174,7 +174,7 @@ def download_pdf():
     if client is None:
         return redirect("/")
 
-    semester = request.args.get("sem", client.semesters[0])
+    semester = request.args.get("sem", client.current_semester)
 
     pdf = dl_pdf(user, semester)
     return send_file(
