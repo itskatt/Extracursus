@@ -3,7 +3,7 @@ import re
 
 from PyPDF4 import PdfFileReader
 
-SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+[RE].+\d :")
+SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+[RE].+ :")
 NON_SUBJECT_REGEX = re.compile(r"Code (UE|Matière) .+\D :")
 COMMENTS_REGEX = re.compile(r"Séance.+-")
 GRADE_REGEX = re.compile(r"((\d+\.\d+ )?\(coeff (\d+\.\d+)\))|(Résultats non publiés)") # note (et coeff)
@@ -162,7 +162,7 @@ def get_pdf_data(pdf):
 if __name__ == "__main__":
     from pprint import pprint
 
-    with open("../semestre_TBFS2T.pdf", "rb") as f:
+    with open("../semestre_TDFTS3.pdf", "rb") as f:
         pdf = f.read()
 
     grades = extract_subjects(extract_text(pdf))
