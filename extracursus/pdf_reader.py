@@ -45,7 +45,9 @@ def extract_subjects(text):
         subject = subject.splitlines()
 
         # 1ere ligne: nom de la matiere
-        name = subject[0].split(" : ")[-1]
+        name: str = subject[0].split(" : ")[-1]
+
+        name = name.replace("?", "'")
 
         # 2nde ligne: nom du prof + moeynne de la matiere
         # prof
