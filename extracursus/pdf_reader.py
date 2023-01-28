@@ -3,8 +3,7 @@ import re
 
 from PyPDF4 import PdfFileReader
 
-SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+[RE].+ :")
-NON_SUBJECT_REGEX = re.compile(r"Code (UE|Matière) .+\D :")
+SUBJECTS_REGEX = re.compile(r"Code (UE|Matière) .+ :")
 COMMENTS_REGEX = re.compile(r"Séance.+-")
 GRADE_REGEX = re.compile(r"((\d+\.\d+ )?\(coeff (\d+\.\d+)\))|(Résultats non publiés)") # note (et coeff)
 
@@ -34,11 +33,6 @@ def extract_subjects(text):
     # Aucunes notes trouvée parce que le pdf est vide
     if not subjects:
         return out
-
-    # ici, on localise la fin de la dernière matière
-    match = NON_SUBJECT_REGEX.search(text[subjects[-1]:])
-    if match:
-        subjects.append(match.start() + subjects[-1])
 
     for i in range(len(subjects) - 1):
         subject = text[subjects[i]:subjects[i + 1]]
