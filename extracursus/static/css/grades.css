@@ -106,6 +106,7 @@ main {
   text-decoration: none;
   margin-top: 5px;
   color: var(--Headline);
+  cursor: pointer;
 }
 .top-container div:first-of-type {
   background-color: var(--Main);
