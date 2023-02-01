@@ -131,15 +131,13 @@ main {
 }
 .top-container div:first-of-type > div > div div > span {
   color: var(--Paragraphe);
-  font-size: 10px;
 }
 .top-container div:first-of-type > div > div div #moyenneGeneral {
   color: var(--Headline);
-  font-size: 40px;
+  font-size: 35px;
   font-weight: normal;
 }
 .top-container div:first-of-type > div > div span {
-  font-size: 15px;
   color: var(--Headline);
 }
 .top-container div:first-of-type.disabled {
@@ -259,7 +257,15 @@ input:not(:checked) ~ label:last-of-type {
   background-color: var(--Stroke);
 }
 
+@media screen and (max-width: 450px) {
+  #moyenneGeneral {
+    font-size: 20px !important;
+  }
+}
 @media screen and (min-width: 600px) {
+  h2 {
+    margin-top: 30px;
+  }
   .top-container div {
     border-radius: 23px;
   }
@@ -271,7 +277,7 @@ input:not(:checked) ~ label:last-of-type {
     font-size: 19px;
   }
   .top-container div:first-of-type > div > div div #moyenneGeneral {
-    font-size: 80px;
+    font-size: 65px;
     font-weight: normal;
   }
   .top-container div:first-of-type > div > div span {
