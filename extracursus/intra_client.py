@@ -59,7 +59,8 @@ class IntraClient:
         """
         # connection a intracursus
         resp = self.sess.get(
-            "https://login.unice.fr/login?service=https%3A%2F%2Fintracursus2.unice.fr%2Fic%2Fdlogin%2Fcas.php")
+            "https://intracursus.unice.fr/ic/dlogin/cas.php" # on passe par cette url pour s'authentifier avec le service de l'université
+        )
         html_page = resp.text
 
         semesters = {}
@@ -101,7 +102,7 @@ class IntraClient:
 
         # téléchargement...
         resp = self.sess.post(
-            "https://intracursus2.unice.fr/ic/etudiant/ic-notes-presences.php",
+            "https://intracursus.unice.fr/ic/etudiant/ic-notes-presences.php",
             data=payload
         )
         return resp.content
