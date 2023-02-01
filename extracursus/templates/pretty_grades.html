@@ -24,37 +24,12 @@
 {% block main %}
     <div class="top-container">
 
-        {# == Référence ==
-        ===============
-
         {% if pdf_data["admission"] or pdf_data["average"] or pdf_data["position"] %}
-            <ul class="header-data">
-
-                {% if pdf_data["admission"] %}
-                    <li>Résultat d'admission&nbsp;: <b>{{ pdf_data["admission"] }}</b></li>
-                {% endif %}
-
-                {% if pdf_data["average"] %}
-                    <li>Moyenne générale&nbsp;: <b>{{ pdf_data["average"] }}</b></li>
-                {% endif %}
-
-                {% if pdf_data["position"] %}
-                    <li>Position dans le classement&nbsp;: <b>{{ pdf_data["position"] }}</b></li>
-                {% endif %}
-            </ul>
-            <hr>
+        <div>
+        {% else %}
+        <div class="disabled">
         {% endif %}
 
-        #}
-
-        <div class="disabled">
-            {#
-                Ce block if doit s'afficher uniquement si les résultats d'admission OU
-                la moyenne OU la position dans le classement est présente.
-
-                TODO --> Résulats d'admissions comme https://github.com/itskatt/Extracursus/blob/321084850be6dfe33ac451695204abc4df74f164/extracursus/templates/pretty_grades.html#L28
-            #}
-            {% if pdf_data["admission"] or pdf_data["average"] or pdf_data["position"] %}
                 <div>
                     <div>
                         <div>
@@ -64,9 +39,9 @@
                         <span>Rang : <b id="rank">{{ pdf_data["position"] }}</b></span>
                     </div>
                 </div>
-            {% endif %}
 
-        </div>
+            </div>
+        
         <div>
             <div>
                 <a href="/pdf_dl?sem={{ semester }}" class="pill-btn material-symbols-outlined">file_download</a>
