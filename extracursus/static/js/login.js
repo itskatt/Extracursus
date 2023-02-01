@@ -10,27 +10,6 @@ document.querySelectorAll("form").forEach((frm) => {
     })
 })
 
-// sus
-const sus = document.getElementById("sus")
-sus.addEventListener("transitionend", () => {
-    // test if the transition did not end
-    if (!sus.matches(":hover")) {
-        return
-    };
-
-    console.log("sus")
-    sus.classList.add("falling")
-})
-
-sus.addEventListener("animationend", () => {
-    sus.classList.remove("falling")
-})
-
-document.getElementById("sus2").addEventListener("click", () => {
-    document.getElementById("extra").classList.add("extra-sus")
-    document.getElementById("cur").classList.add("extra-sus")
-})
-
 async function login() {
     // we get the data
     const form = document.getElementById("login-form")
