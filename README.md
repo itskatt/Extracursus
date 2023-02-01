@@ -66,6 +66,9 @@ Congratulations, you have successfully installed the app, now you can either:
 
 ## Authors
 
+### Connection to *Intracursus*
+Grégory Jeannin (GregVido) &mdash; https://github.com/GregVido
+
 ### Back end
 Raphaël Caldwell (itskatt) &mdash; https://github.com/itskatt
 
