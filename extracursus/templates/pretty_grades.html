@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block imports %}
-    {% assets filter="cssmin", output="gen/grades-bundle.css", "css/base.css", "css/grades.css" %}
+    {% assets filters="cssmin", output="gen/grades-bundle.css", "css/base.css", "css/grades.css" %}
         <link rel="stylesheet" href="{{ ASSET_URL }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% endassets %}
 
-    {% assets filter="rjsmin", output="gen/grades.min.js", "js/grades.js" %}
+    {% assets filters="rjsmin", output="gen/grades.min.js", "js/grades.js" %}
         <script defer src="{{ ASSET_URL }}"></script>
     {% endassets %}
 {% endblock %}
