@@ -30,8 +30,8 @@ Environment(app)
 Talisman(app, content_security_policy=None)
 
 limiter = Limiter(
-    app,
-    key_func=get_remote_address,
+    get_remote_address,
+    app=app,
     storage_uri="memory://"
 )
 
