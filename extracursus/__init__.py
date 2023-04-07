@@ -38,7 +38,7 @@ limiter = Limiter(
 active_clients = {}
 
 # PDF caching ----------------------------------------------------
-@lru_cache(maxsize=64)
+@lru_cache(maxsize=32)
 def _dl_pdf_cached(username, semester, ttl_hash=None):
     """
     Dowloads a PDF or returns the one in cache
