@@ -104,7 +104,8 @@ def extract_subjects(text):
         if not average:
             filtered = list(filter(lambda g: len(g) > 1, grades))
             if filtered: # on calcule la moyenne uniquement si on a des notes
-                average = sum((g[0] * g[1] for g in filtered)) / sum((g[1] for g in filtered))
+                divide_by = sum((g[1] for g in filtered)) or 1 # si coef 0
+                average = sum((g[0] * g[1] for g in filtered)) / divide_by
                 average = f"{remove0s(round(average, 3))} (calculée)"
             else:
                 average = "Pas de moyenne disponible"
@@ -158,7 +159,7 @@ def get_pdf_data(pdf):
 if __name__ == "__main__":
     from pprint import pprint
 
-    with open("../semestre_TDFTS3.pdf", "rb") as f:
+    with open("../semestre_a1.pdf", "rb") as f:
         pdf = f.read()
 
     grades = extract_subjects(extract_text(pdf))
