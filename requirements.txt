@@ -3,6 +3,6 @@ Flask-Assets ~= 2.0
 flask-talisman ~= 1.0
 Flask-Limiter ~= 3.3
 cssmin ~= 0.2
-requests ~= 2.29
+requests ~= 2.30
 PyPDF4 ~= 1.27
 waitress ~= 2.1
