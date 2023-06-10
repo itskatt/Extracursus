@@ -34,21 +34,6 @@ To get a running copy of *Extracursus*, please follow the following instructions
 
       *Note: if you wish not to pollute your environement, you can use a [virtual environement](https://docs.python.org/3/library/venv.html)*
 
-3. ### Configure a secret key  
-   First generate it
-
-   ```py
-   >>> import secrets
-   >>> secrets.token_hex()
-   '18e5c6edc1c5...'
-   ```
-
-   Then set it as an environment variable to be able tu use it
-
-   ```sh
-   export FLASK_SECRET_KEY=18e5c6edc1c5...
-   ```
-
 Congratulations, you have successfully installed the app, now you can either:
    - Run the app in debug mode (for development):
      
