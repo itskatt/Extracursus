@@ -1,5 +1,15 @@
 # Extracursus
 
+---
+**NOTE**
+
+Since the Nice university moved to a new login system, Extracursus can no longer connect to Intracursus
+and retrieve grades. Moreover, with me graduating and leaving, I no longer feel the need to maintain this project.
+
+This project is now retired, thanks for the support.
+
+---
+
 ## Motivation
 
 The website that my university uses to handle our grades is old and not practical to use
